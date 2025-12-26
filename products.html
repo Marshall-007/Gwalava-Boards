@@ -72,12 +72,14 @@
             font-weight: 700;
             margin-bottom: 1rem;
             text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
+            color: #ffffff !important;
         }
         
         .products-hero p {
             font-size: 1.25rem;
             max-width: 600px;
             margin: 0 auto;
+            color: #ffffff !important;
         }
         
         /* Category Navigation */
@@ -157,7 +159,7 @@
             max-width: 700px;
         }
         
-        /* Product Cards */
+        /* Product Cards - Clickable */
         .product-card {
             background: white;
             border-radius: 20px;
@@ -165,11 +167,16 @@
             box-shadow: 0 10px 40px rgba(0,0,0,0.1);
             transition: all 0.4s ease;
             height: 100%;
+            cursor: pointer;
+            text-decoration: none;
+            color: inherit;
+            display: block;
         }
         
         .product-card:hover {
             transform: translateY(-10px);
             box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+            color: inherit;
         }
         
         .product-card-img {
@@ -198,6 +205,7 @@
             background: linear-gradient(180deg, transparent 50%, rgba(0,0,0,0.7) 100%);
             display: flex;
             align-items: flex-end;
+            justify-content: center;
             padding: 1.5rem;
             opacity: 0;
             transition: opacity 0.3s ease;
@@ -207,9 +215,13 @@
             opacity: 1;
         }
         
-        .product-card-overlay span {
-            color: white;
-            font-weight: 500;
+        .product-card-overlay .btn {
+            transform: translateY(20px);
+            transition: transform 0.3s ease;
+        }
+        
+        .product-card:hover .product-card-overlay .btn {
+            transform: translateY(0);
         }
         
         .product-card-body {
@@ -227,11 +239,11 @@
             margin: 0;
         }
         
-        /* Color Swatches Grid */
+        /* Color Swatches Grid - Clickable */
         .color-swatch-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-            gap: 1.5rem;
+            grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+            gap: 1.25rem;
         }
         
         .color-swatch {
@@ -242,11 +254,13 @@
             cursor: pointer;
             transition: all 0.3s ease;
             box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            text-decoration: none;
+            display: block;
         }
         
         .color-swatch:hover {
-            transform: scale(1.05) rotate(-2deg);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+            transform: scale(1.08) rotate(-2deg);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.25);
         }
         
         .color-swatch img {
@@ -266,6 +280,18 @@
             font-size: 0.85rem;
             font-weight: 500;
             text-align: center;
+        }
+        
+        .color-swatch .swatch-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: var(--primary);
+            color: white;
+            font-size: 0.7rem;
+            padding: 3px 8px;
+            border-radius: 10px;
+            font-weight: 600;
         }
         
         /* Featured Product */
@@ -348,6 +374,93 @@
             font-weight: 600;
         }
         
+        /* Product Modal */
+        .product-modal .modal-content {
+            border-radius: 20px;
+            overflow: hidden;
+            border: none;
+        }
+        
+        .product-modal .modal-header {
+            border-bottom: none;
+            padding: 1.5rem 1.5rem 0;
+        }
+        
+        .product-modal .modal-body {
+            padding: 1.5rem;
+        }
+        
+        .product-modal .product-main-image {
+            border-radius: 15px;
+            overflow: hidden;
+            margin-bottom: 1rem;
+        }
+        
+        .product-modal .product-main-image img {
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+        }
+        
+        .product-modal .product-thumbnails {
+            display: flex;
+            gap: 0.5rem;
+            overflow-x: auto;
+            padding-bottom: 0.5rem;
+        }
+        
+        .product-modal .product-thumbnails img {
+            width: 70px;
+            height: 70px;
+            object-fit: cover;
+            border-radius: 10px;
+            cursor: pointer;
+            opacity: 0.6;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+        
+        .product-modal .product-thumbnails img:hover,
+        .product-modal .product-thumbnails img.active {
+            opacity: 1;
+            border-color: var(--primary);
+        }
+        
+        .product-modal .product-info h4 {
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+        
+        .product-modal .product-info .product-category {
+            color: var(--primary);
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+        
+        .product-modal .product-specs {
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 1.25rem;
+            margin: 1rem 0;
+        }
+        
+        .product-modal .product-specs h6 {
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        
+        .product-modal .spec-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #e9ecef;
+        }
+        
+        .product-modal .spec-item:last-child {
+            border-bottom: none;
+        }
+        
         /* CTA Section */
         .products-cta {
             background: linear-gradient(135deg, var(--primary) 0%, #a00909 100%);
@@ -411,8 +524,8 @@
             }
             
             .color-swatch-grid {
-                grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-                gap: 1rem;
+                grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+                gap: 0.75rem;
             }
             
             .inspiration-gallery {
@@ -426,6 +539,14 @@
             
             .featured-product {
                 padding: 2rem 1.5rem;
+            }
+            
+            .product-modal .modal-body {
+                padding: 1rem;
+            }
+            
+            .product-modal .product-main-image img {
+                height: 250px;
             }
         }
     </style>
@@ -509,6 +630,12 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#worktops">Worktops</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#edge-banding">Edge Banding</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#hardware">Hardware</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#inspiration">Inspiration</a>
@@ -601,89 +728,261 @@
             
             <div class="row g-4 mt-4">
                 <div class="col-lg-4 col-md-6" data-aos="zoom-in" data-aos-delay="100">
-                    <div class="product-card">
+                    <a href="#" class="product-card" data-bs-toggle="modal" data-bs-target="#productModal" 
+                       data-name="Farasan" 
+                       data-category="Woodgrain - MelaWood" 
+                       data-image="https://pgbison.co.za/wp-content/uploads/2025/04/Farasan_1000x1500mm-72dpi--683x1024.jpg"
+                       data-description="Light oak woodgrain with natural texture finish. Perfect for modern Scandinavian-inspired interiors and contemporary furniture designs."
+                       data-finish="Natural Texture"
+                       data-size="2750mm x 1830mm"
+                       data-thickness="16mm / 18mm">
                         <div class="product-card-img">
                             <img src="https://pgbison.co.za/wp-content/uploads/2025/04/Farasan_1000x1500mm-72dpi--683x1024.jpg" alt="Farasan Oak Woodgrain">
                             <div class="product-card-overlay">
-                                <span><i class="fa fa-search me-2"></i>View Details</span>
+                                <span class="btn btn-primary btn-sm"><i class="fa fa-eye me-2"></i>Quick View</span>
                             </div>
                         </div>
                         <div class="product-card-body">
                             <h5>Farasan</h5>
                             <p>Light oak woodgrain with natural texture finish for modern interiors.</p>
                         </div>
-                    </div>
+                    </a>
                 </div>
-                <div class="col-lg-4 col-md-6" data-aos="zoom-in" data-aos-delay="200">
-                    <div class="product-card">
+                <div class="col-lg-4 col-md-6" data-aos="zoom-in" data-aos-delay="150">
+                    <a href="#" class="product-card" data-bs-toggle="modal" data-bs-target="#productModal" 
+                       data-name="Pasadena" 
+                       data-category="Woodgrain - MelaWood" 
+                       data-image="https://pgbison.co.za/wp-content/uploads/2025/04/Pasadena_1000x1500mm-72dpi--683x1024.jpg"
+                       data-description="Rich walnut tones with deep grain patterns. Ideal for elegant and sophisticated spaces requiring a premium look."
+                       data-finish="Natural Texture"
+                       data-size="2750mm x 1830mm"
+                       data-thickness="16mm / 18mm">
                         <div class="product-card-img">
                             <img src="https://pgbison.co.za/wp-content/uploads/2025/04/Pasadena_1000x1500mm-72dpi--683x1024.jpg" alt="Pasadena Walnut Woodgrain">
                             <div class="product-card-overlay">
-                                <span><i class="fa fa-search me-2"></i>View Details</span>
+                                <span class="btn btn-primary btn-sm"><i class="fa fa-eye me-2"></i>Quick View</span>
                             </div>
                         </div>
                         <div class="product-card-body">
                             <h5>Pasadena</h5>
                             <p>Rich walnut tones perfect for elegant and sophisticated spaces.</p>
                         </div>
-                    </div>
+                    </a>
                 </div>
-                <div class="col-lg-4 col-md-6" data-aos="zoom-in" data-aos-delay="300">
-                    <div class="product-card">
+                <div class="col-lg-4 col-md-6" data-aos="zoom-in" data-aos-delay="200">
+                    <a href="#" class="product-card" data-bs-toggle="modal" data-bs-target="#productModal" 
+                       data-name="Clydeshaw" 
+                       data-category="Woodgrain - MelaWood" 
+                       data-image="https://pgbison.co.za/wp-content/uploads/2025/04/Clydeshaw_1000x1500mm-72dpi-CROP-683x1024.jpg"
+                       data-description="Scandinavian-inspired pine with light, natural tones. Creates a warm, inviting atmosphere in any room."
+                       data-finish="Natural Texture"
+                       data-size="2750mm x 1830mm"
+                       data-thickness="16mm / 18mm">
                         <div class="product-card-img">
                             <img src="https://pgbison.co.za/wp-content/uploads/2025/04/Clydeshaw_1000x1500mm-72dpi-CROP-683x1024.jpg" alt="Clydeshaw Woodgrain">
                             <div class="product-card-overlay">
-                                <span><i class="fa fa-search me-2"></i>View Details</span>
+                                <span class="btn btn-primary btn-sm"><i class="fa fa-eye me-2"></i>Quick View</span>
                             </div>
                         </div>
                         <div class="product-card-body">
                             <h5>Clydeshaw</h5>
                             <p>Scandinavian-inspired pine for a warm, inviting atmosphere.</p>
                         </div>
-                    </div>
+                    </a>
                 </div>
-                <div class="col-lg-4 col-md-6" data-aos="zoom-in" data-aos-delay="400">
-                    <div class="product-card">
+                <div class="col-lg-4 col-md-6" data-aos="zoom-in" data-aos-delay="250">
+                    <a href="#" class="product-card" data-bs-toggle="modal" data-bs-target="#productModal" 
+                       data-name="Earlswood" 
+                       data-category="Woodgrain - SupaTexture" 
+                       data-image="https://pgbison.co.za/wp-content/uploads/2025/04/Earlswood_1000x1500mm-72dpi-CROP--683x1024.jpg"
+                       data-description="Classic deep textured grain with rich colour variations. Features SupaTexture finish for enhanced tactile experience."
+                       data-finish="SupaTexture Deep Structure"
+                       data-size="2750mm x 1830mm"
+                       data-thickness="18mm">
                         <div class="product-card-img">
                             <img src="https://pgbison.co.za/wp-content/uploads/2025/04/Earlswood_1000x1500mm-72dpi-CROP--683x1024.jpg" alt="Earlswood SupaTexture">
                             <div class="product-card-overlay">
-                                <span><i class="fa fa-search me-2"></i>View Details</span>
+                                <span class="btn btn-primary btn-sm"><i class="fa fa-eye me-2"></i>Quick View</span>
                             </div>
                         </div>
                         <div class="product-card-body">
                             <h5>Earlswood</h5>
                             <p>Classic deep textured grain with subtle variations for timeless appeal.</p>
                         </div>
-                    </div>
+                    </a>
                 </div>
-                <div class="col-lg-4 col-md-6" data-aos="zoom-in" data-aos-delay="500">
-                    <div class="product-card">
+                <div class="col-lg-4 col-md-6" data-aos="zoom-in" data-aos-delay="300">
+                    <a href="#" class="product-card" data-bs-toggle="modal" data-bs-target="#productModal" 
+                       data-name="Laredo" 
+                       data-category="Woodgrain - SupaTexture" 
+                       data-image="https://pgbison.co.za/wp-content/uploads/2025/04/Laredo_1000x1500mm-72dpi-CROP-683x1024.jpg"
+                       data-description="Rich brown wood grain with natural patterns. Premium choice for high-end furniture and kitchen cabinetry."
+                       data-finish="SupaTexture Deep Structure"
+                       data-size="2750mm x 1830mm"
+                       data-thickness="18mm">
                         <div class="product-card-img">
                             <img src="https://pgbison.co.za/wp-content/uploads/2025/04/Laredo_1000x1500mm-72dpi-CROP-683x1024.jpg" alt="Laredo Woodgrain">
                             <div class="product-card-overlay">
-                                <span><i class="fa fa-search me-2"></i>View Details</span>
+                                <span class="btn btn-primary btn-sm"><i class="fa fa-eye me-2"></i>Quick View</span>
                             </div>
                         </div>
                         <div class="product-card-body">
                             <h5>Laredo</h5>
                             <p>Rich brown wood grain with natural patterns for premium furniture.</p>
                         </div>
-                    </div>
+                    </a>
                 </div>
-                <div class="col-lg-4 col-md-6" data-aos="zoom-in" data-aos-delay="600">
-                    <div class="product-card">
+                <div class="col-lg-4 col-md-6" data-aos="zoom-in" data-aos-delay="350">
+                    <a href="#" class="product-card" data-bs-toggle="modal" data-bs-target="#productModal" 
+                       data-name="Banbridge" 
+                       data-category="Woodgrain - MelaWood" 
+                       data-image="https://pgbison.co.za/wp-content/uploads/2024/08/Banbridge_1000x1500mm-72dpi-CROP-683x1024.jpg"
+                       data-description="Deep wood tones with bold grain patterns. Makes a strong statement in contemporary and traditional settings alike."
+                       data-finish="Natural Texture"
+                       data-size="2750mm x 1830mm"
+                       data-thickness="16mm / 18mm">
                         <div class="product-card-img">
                             <img src="https://pgbison.co.za/wp-content/uploads/2024/08/Banbridge_1000x1500mm-72dpi-CROP-683x1024.jpg" alt="Banbridge Timber">
                             <div class="product-card-overlay">
-                                <span><i class="fa fa-search me-2"></i>View Details</span>
+                                <span class="btn btn-primary btn-sm"><i class="fa fa-eye me-2"></i>Quick View</span>
                             </div>
                         </div>
                         <div class="product-card-body">
                             <h5>Banbridge</h5>
                             <p>Deep wood tones for a bold, statement-making design.</p>
                         </div>
-                    </div>
+                    </a>
                 </div>
+                <div class="col-lg-4 col-md-6" data-aos="zoom-in" data-aos-delay="400">
+                    <a href="#" class="product-card" data-bs-toggle="modal" data-bs-target="#productModal" 
+                       data-name="Vieste" 
+                       data-category="Woodgrain - SupaTexture" 
+                       data-image="https://pgbison.co.za/wp-content/uploads/2025/04/Vieste_1000x1500mm-72dpi-CROP-683x1024.jpg"
+                       data-description="Natural wood texture with knots and authentic grain patterns. Ideal for rustic and farmhouse-style interiors."
+                       data-finish="SupaTexture Deep Structure"
+                       data-size="2750mm x 1830mm"
+                       data-thickness="18mm">
+                        <div class="product-card-img">
+                            <img src="https://pgbison.co.za/wp-content/uploads/2025/04/Vieste_1000x1500mm-72dpi-CROP-683x1024.jpg" alt="Vieste Woodgrain">
+                            <div class="product-card-overlay">
+                                <span class="btn btn-primary btn-sm"><i class="fa fa-eye me-2"></i>Quick View</span>
+                            </div>
+                        </div>
+                        <div class="product-card-body">
+                            <h5>Vieste</h5>
+                            <p>Natural wood texture with authentic knots and grain patterns.</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-4 col-md-6" data-aos="zoom-in" data-aos-delay="450">
+                    <a href="#" class="product-card" data-bs-toggle="modal" data-bs-target="#productModal" 
+                       data-name="Luca Polenta" 
+                       data-category="Stone & Structure - MelaWood" 
+                       data-image="https://pgbison.co.za/wp-content/uploads/2024/08/Luca_Polenta_1000x1500mm-72dpi-CROP-683x1024.jpg"
+                       data-description="Contemporary stone-inspired finish with subtle texture. Perfect for modern minimalist designs and industrial aesthetics."
+                       data-finish="Stone Structure"
+                       data-size="2750mm x 1830mm"
+                       data-thickness="16mm / 18mm">
+                        <div class="product-card-img">
+                            <img src="https://pgbison.co.za/wp-content/uploads/2024/08/Luca_Polenta_1000x1500mm-72dpi-CROP-683x1024.jpg" alt="Luca Polenta">
+                            <div class="product-card-overlay">
+                                <span class="btn btn-primary btn-sm"><i class="fa fa-eye me-2"></i>Quick View</span>
+                            </div>
+                        </div>
+                        <div class="product-card-body">
+                            <h5>Luca Polenta</h5>
+                            <p>Contemporary stone-inspired finish for modern minimalist designs.</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-4 col-md-6" data-aos="zoom-in" data-aos-delay="500">
+                    <a href="#" class="product-card" data-bs-toggle="modal" data-bs-target="#productModal" 
+                       data-name="Anchor Point" 
+                       data-category="Stone & Structure - MelaWood" 
+                       data-image="https://pgbison.co.za/wp-content/uploads/2024/06/Anchor_Point_1000x1500mm-72dpi--683x1024.jpg"
+                       data-description="Sophisticated concrete-effect finish with urban appeal. Ideal for contemporary kitchens and commercial spaces."
+                       data-finish="Stone Structure"
+                       data-size="2750mm x 1830mm"
+                       data-thickness="16mm / 18mm">
+                        <div class="product-card-img">
+                            <img src="https://pgbison.co.za/wp-content/uploads/2024/06/Anchor_Point_1000x1500mm-72dpi--683x1024.jpg" alt="Anchor Point">
+                            <div class="product-card-overlay">
+                                <span class="btn btn-primary btn-sm"><i class="fa fa-eye me-2"></i>Quick View</span>
+                            </div>
+                        </div>
+                        <div class="product-card-body">
+                            <h5>Anchor Point</h5>
+                            <p>Sophisticated concrete-effect finish with urban appeal.</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-4 col-md-6" data-aos="zoom-in" data-aos-delay="550">
+                    <a href="#" class="product-card" data-bs-toggle="modal" data-bs-target="#productModal" 
+                       data-name="Havana" 
+                       data-category="Woodgrain - MelaWood" 
+                       data-image="https://pgbison.co.za/wp-content/uploads/2024/08/Havana_1000x1500mm-72dpi-CROP-683x1024.jpg"
+                       data-description="Warm brown woodgrain with subtle grain patterns. Classic choice for traditional and transitional furniture designs."
+                       data-finish="Natural Texture"
+                       data-size="2750mm x 1830mm"
+                       data-thickness="16mm / 18mm">
+                        <div class="product-card-img">
+                            <img src="https://pgbison.co.za/wp-content/uploads/2024/08/Havana_1000x1500mm-72dpi-CROP-683x1024.jpg" alt="Havana Woodgrain">
+                            <div class="product-card-overlay">
+                                <span class="btn btn-primary btn-sm"><i class="fa fa-eye me-2"></i>Quick View</span>
+                            </div>
+                        </div>
+                        <div class="product-card-body">
+                            <h5>Havana</h5>
+                            <p>Warm brown woodgrain for classic traditional furniture designs.</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-4 col-md-6" data-aos="zoom-in" data-aos-delay="600">
+                    <a href="#" class="product-card" data-bs-toggle="modal" data-bs-target="#productModal" 
+                       data-name="Lottie" 
+                       data-category="Woodgrain - SupaTexture" 
+                       data-image="https://pgbison.co.za/wp-content/uploads/2024/08/Lottie_1000x1500mm-72dpi-CROP-683x1024.jpg"
+                       data-description="Light grey woodgrain with textured finish. Modern and versatile choice for contemporary interiors."
+                       data-finish="SupaTexture Deep Structure"
+                       data-size="2750mm x 1830mm"
+                       data-thickness="18mm">
+                        <div class="product-card-img">
+                            <img src="https://pgbison.co.za/wp-content/uploads/2024/08/Lottie_1000x1500mm-72dpi-CROP-683x1024.jpg" alt="Lottie Woodgrain">
+                            <div class="product-card-overlay">
+                                <span class="btn btn-primary btn-sm"><i class="fa fa-eye me-2"></i>Quick View</span>
+                            </div>
+                        </div>
+                        <div class="product-card-body">
+                            <h5>Lottie</h5>
+                            <p>Light grey woodgrain perfect for modern versatile interiors.</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-4 col-md-6" data-aos="zoom-in" data-aos-delay="650">
+                    <a href="#" class="product-card" data-bs-toggle="modal" data-bs-target="#productModal" 
+                       data-name="Salerno" 
+                       data-category="Woodgrain - MelaWood" 
+                       data-image="https://pgbison.co.za/wp-content/uploads/2024/06/Salerno_1000x1500mm-72dpi-CROP-683x1024.jpg"
+                       data-description="Mediterranean-inspired walnut with rich brown tones. Adds warmth and elegance to any space."
+                       data-finish="Natural Texture"
+                       data-size="2750mm x 1830mm"
+                       data-thickness="16mm / 18mm">
+                        <div class="product-card-img">
+                            <img src="https://pgbison.co.za/wp-content/uploads/2024/06/Salerno_1000x1500mm-72dpi-CROP-683x1024.jpg" alt="Salerno Woodgrain">
+                            <div class="product-card-overlay">
+                                <span class="btn btn-primary btn-sm"><i class="fa fa-eye me-2"></i>Quick View</span>
+                            </div>
+                        </div>
+                        <div class="product-card-body">
+                            <h5>Salerno</h5>
+                            <p>Mediterranean-inspired walnut that adds warmth and elegance.</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="text-center mt-5" data-aos="fade-up">
+                <a href="contact.html" class="btn btn-primary px-4 py-2"><i class="fa fa-palette me-2"></i>Request Color Samples</a>
             </div>
         </div>
     </section>
@@ -693,56 +992,154 @@
     <!-- Solid Colors Section Start -->
     <section id="solid-colors" class="product-section">
         <div class="container">
-            <div class="row align-items-center">
+            <div class="row align-items-center mb-5">
                 <div class="col-lg-5" data-aos="fade-right">
                     <div class="section-header">
                         <h2>Solid Colors</h2>
                         <p>From classic whites to bold statement colors, our solid color range offers endless possibilities for your creative vision. Perfect for contemporary designs and minimalist aesthetics.</p>
                     </div>
+                    <div class="d-flex gap-3 flex-wrap mt-4">
+                        <a href="contact.html" class="btn btn-primary"><i class="fa fa-palette me-2"></i>Request Samples</a>
+                        <a href="tel:0119456199" class="btn btn-outline-primary"><i class="fa fa-phone me-2"></i>Call Us</a>
+                    </div>
                 </div>
-                <div class="col-lg-7" data-aos="fade-left">
+                <div class="col-lg-7 mt-4 mt-lg-0" data-aos="fade-left">
                     <div class="color-swatch-grid">
-                        <div class="color-swatch">
+                        <a href="#" class="color-swatch" data-bs-toggle="modal" data-bs-target="#productModal"
+                           data-name="Super Black" data-category="Solid Color - SupaMatt"
+                           data-image="https://pgbison.co.za/wp-content/uploads/2024/12/2023_PGBison_Supa_SuperBlack-800x800.jpg"
+                           data-description="Deep, rich black with ultra-matt finish. Anti-fingerprint technology keeps surfaces looking pristine."
+                           data-finish="SupaMatt Anti-Fingerprint" data-size="2750mm x 1830mm" data-thickness="16mm / 18mm">
                             <img src="https://pgbison.co.za/wp-content/uploads/2024/12/2023_PGBison_Supa_SuperBlack-800x800.jpg" alt="Super Black">
                             <div class="color-swatch-label">Super Black</div>
-                        </div>
-                        <div class="color-swatch">
+                            <span class="swatch-badge">Popular</span>
+                        </a>
+                        <a href="#" class="color-swatch" data-bs-toggle="modal" data-bs-target="#productModal"
+                           data-name="Storm Grey" data-category="Solid Color - SupaMatt"
+                           data-image="https://pgbison.co.za/wp-content/uploads/2024/12/2023_PGBison_Supa_StormGrey-800x800.jpg"
+                           data-description="Sophisticated grey with modern appeal. Perfect for contemporary kitchen and office designs."
+                           data-finish="SupaMatt Anti-Fingerprint" data-size="2750mm x 1830mm" data-thickness="16mm / 18mm">
                             <img src="https://pgbison.co.za/wp-content/uploads/2024/12/2023_PGBison_Supa_StormGrey-800x800.jpg" alt="Storm Grey">
                             <div class="color-swatch-label">Storm Grey</div>
-                        </div>
-                        <div class="color-swatch">
+                        </a>
+                        <a href="#" class="color-swatch" data-bs-toggle="modal" data-bs-target="#productModal"
+                           data-name="Rioverde" data-category="Solid Color - MelaWood"
+                           data-image="https://pgbison.co.za/wp-content/uploads/2025/04/Rioverde-800x800.jpg"
+                           data-description="Deep forest green that brings nature indoors. On-trend color for statement pieces and accent cabinetry."
+                           data-finish="Natural Touch" data-size="2750mm x 1830mm" data-thickness="16mm / 18mm">
                             <img src="https://pgbison.co.za/wp-content/uploads/2025/04/Rioverde-800x800.jpg" alt="Rioverde">
                             <div class="color-swatch-label">Rioverde</div>
-                        </div>
-                        <div class="color-swatch">
+                            <span class="swatch-badge">Trending</span>
+                        </a>
+                        <a href="#" class="color-swatch" data-bs-toggle="modal" data-bs-target="#productModal"
+                           data-name="Nata" data-category="Solid Color - MelaWood"
+                           data-image="https://pgbison.co.za/wp-content/uploads/2025/04/Nata-800x800.jpg"
+                           data-description="Soft cream white with warm undertones. Timeless choice for classic and transitional interiors."
+                           data-finish="Natural Touch" data-size="2750mm x 1830mm" data-thickness="16mm / 18mm">
                             <img src="https://pgbison.co.za/wp-content/uploads/2025/04/Nata-800x800.jpg" alt="Nata">
                             <div class="color-swatch-label" style="color: #333;">Nata</div>
-                        </div>
-                        <div class="color-swatch">
+                        </a>
+                        <a href="#" class="color-swatch" data-bs-toggle="modal" data-bs-target="#productModal"
+                           data-name="Kara Blu" data-category="Solid Color - SupaMatt"
+                           data-image="https://pgbison.co.za/wp-content/uploads/2024/12/New2023_PGBison_Supa_KaraBlu.jpg"
+                           data-description="Bold navy blue that makes a statement. Perfect for feature walls and accent cabinetry."
+                           data-finish="SupaMatt Anti-Fingerprint" data-size="2750mm x 1830mm" data-thickness="16mm / 18mm">
                             <img src="https://pgbison.co.za/wp-content/uploads/2024/12/New2023_PGBison_Supa_KaraBlu.jpg" alt="Kara Blu">
                             <div class="color-swatch-label">Kara Blu</div>
-                        </div>
-                        <div class="color-swatch">
+                            <span class="swatch-badge">New</span>
+                        </a>
+                        <a href="#" class="color-swatch" data-bs-toggle="modal" data-bs-target="#productModal"
+                           data-name="Dunblane Grey" data-category="Solid Color - MelaWood"
+                           data-image="https://pgbison.co.za/wp-content/uploads/2024/06/2023_PGBison_MW_DunblaneGrey-800x800.jpg"
+                           data-description="Versatile mid-grey that pairs beautifully with any design scheme. A modern classic."
+                           data-finish="Natural Touch" data-size="2750mm x 1830mm" data-thickness="16mm / 18mm">
                             <img src="https://pgbison.co.za/wp-content/uploads/2024/06/2023_PGBison_MW_DunblaneGrey-800x800.jpg" alt="Dunblane Grey">
                             <div class="color-swatch-label">Dunblane Grey</div>
-                        </div>
-                        <div class="color-swatch">
+                        </a>
+                        <a href="#" class="color-swatch" data-bs-toggle="modal" data-bs-target="#productModal"
+                           data-name="Bellavista" data-category="Solid Color - MelaWood"
+                           data-image="https://pgbison.co.za/wp-content/uploads/2025/04/Bellavista-800x800.jpg"
+                           data-description="Soft taupe with subtle warmth. Creates a calming, sophisticated atmosphere in any space."
+                           data-finish="Natural Touch" data-size="2750mm x 1830mm" data-thickness="16mm / 18mm">
                             <img src="https://pgbison.co.za/wp-content/uploads/2025/04/Bellavista-800x800.jpg" alt="Bellavista">
                             <div class="color-swatch-label" style="color: #333;">Bellavista</div>
-                        </div>
-                        <div class="color-swatch">
+                        </a>
+                        <a href="#" class="color-swatch" data-bs-toggle="modal" data-bs-target="#productModal"
+                           data-name="Iceberg White" data-category="Solid Color - MelaWood"
+                           data-image="https://pgbison.co.za/wp-content/uploads/2024/06/2023_PGBison_MW_IcebergWhite-800x800.jpg"
+                           data-description="Pure, crisp white for a clean, bright look. The most versatile choice for any application."
+                           data-finish="Natural Touch" data-size="2750mm x 1830mm" data-thickness="16mm / 18mm">
                             <img src="https://pgbison.co.za/wp-content/uploads/2024/06/2023_PGBison_MW_IcebergWhite-800x800.jpg" alt="Iceberg White">
                             <div class="color-swatch-label" style="color: #333;">Iceberg White</div>
-                        </div>
-                        <div class="color-swatch">
+                            <span class="swatch-badge">Best Seller</span>
+                        </a>
+                        <a href="#" class="color-swatch" data-bs-toggle="modal" data-bs-target="#productModal"
+                           data-name="Petrol Blue" data-category="Solid Color - MelaWood"
+                           data-image="https://pgbison.co.za/wp-content/uploads/2024/06/Petrol-Blue.jpg"
+                           data-description="Deep teal blue with vintage character. Adds personality and depth to furniture designs."
+                           data-finish="Natural Touch" data-size="2750mm x 1830mm" data-thickness="16mm / 18mm">
                             <img src="https://pgbison.co.za/wp-content/uploads/2024/06/Petrol-Blue.jpg" alt="Petrol Blue">
                             <div class="color-swatch-label">Petrol Blue</div>
-                        </div>
-                        <div class="color-swatch">
+                        </a>
+                        <a href="#" class="color-swatch" data-bs-toggle="modal" data-bs-target="#productModal"
+                           data-name="Alegria" data-category="Solid Color - MelaWood"
+                           data-image="https://pgbison.co.za/wp-content/uploads/2024/06/Alegria_1000x1500mm-72dpi-CROP-683x1024.jpg"
+                           data-description="Warm beige with sandy undertones. Perfect for creating cozy, inviting spaces."
+                           data-finish="Natural Touch" data-size="2750mm x 1830mm" data-thickness="16mm / 18mm">
                             <img src="https://pgbison.co.za/wp-content/uploads/2024/06/Alegria_1000x1500mm-72dpi-CROP-683x1024.jpg" alt="Alegria">
                             <div class="color-swatch-label" style="color: #333;">Alegria</div>
-                        </div>
+                        </a>
+                        <a href="#" class="color-swatch" data-bs-toggle="modal" data-bs-target="#productModal"
+                           data-name="Kalapana" data-category="Solid Color - Monteo"
+                           data-image="https://pgbison.co.za/wp-content/uploads/2024/06/kalapana-800x800.jpg"
+                           data-description="Rich, deep black from the Monteo range. Premium quality with exceptional durability."
+                           data-finish="Monteo Premium" data-size="2750mm x 1830mm" data-thickness="18mm">
+                            <img src="https://pgbison.co.za/wp-content/uploads/2024/06/kalapana-800x800.jpg" alt="Kalapana">
+                            <div class="color-swatch-label">Kalapana</div>
+                        </a>
+                        <a href="#" class="color-swatch" data-bs-toggle="modal" data-bs-target="#productModal"
+                           data-name="Safari Beige" data-category="Solid Color - MelaWood"
+                           data-image="https://pgbison.co.za/wp-content/uploads/2024/06/Safari-Beige.jpg"
+                           data-description="Warm neutral beige that creates a calming, earthy atmosphere. Perfect for natural-themed interiors."
+                           data-finish="Natural Touch" data-size="2750mm x 1830mm" data-thickness="16mm / 18mm">
+                            <img src="https://pgbison.co.za/wp-content/uploads/2024/06/Safari-Beige.jpg" alt="Safari Beige">
+                            <div class="color-swatch-label" style="color: #333;">Safari Beige</div>
+                        </a>
+                        <a href="#" class="color-swatch" data-bs-toggle="modal" data-bs-target="#productModal"
+                           data-name="Cashmere Grey" data-category="Solid Color - SupaMatt"
+                           data-image="https://pgbison.co.za/wp-content/uploads/2024/12/2023_PGBison_Supa_CashmereGrey-800x800.jpg"
+                           data-description="Soft, elegant grey with luxurious matte finish. Anti-fingerprint technology for pristine surfaces."
+                           data-finish="SupaMatt Anti-Fingerprint" data-size="2750mm x 1830mm" data-thickness="16mm / 18mm">
+                            <img src="https://pgbison.co.za/wp-content/uploads/2024/12/2023_PGBison_Supa_CashmereGrey-800x800.jpg" alt="Cashmere Grey">
+                            <div class="color-swatch-label">Cashmere Grey</div>
+                        </a>
+                        <a href="#" class="color-swatch" data-bs-toggle="modal" data-bs-target="#productModal"
+                           data-name="Super White" data-category="Solid Color - SupaMatt"
+                           data-image="https://pgbison.co.za/wp-content/uploads/2024/12/2023_PGBison_Supa_SuperWhite-800x800.jpg"
+                           data-description="Ultra-white with premium matte finish. Perfect for creating bright, modern spaces."
+                           data-finish="SupaMatt Anti-Fingerprint" data-size="2750mm x 1830mm" data-thickness="16mm / 18mm">
+                            <img src="https://pgbison.co.za/wp-content/uploads/2024/12/2023_PGBison_Supa_SuperWhite-800x800.jpg" alt="Super White">
+                            <div class="color-swatch-label" style="color: #333;">Super White</div>
+                            <span class="swatch-badge">Popular</span>
+                        </a>
+                        <a href="#" class="color-swatch" data-bs-toggle="modal" data-bs-target="#productModal"
+                           data-name="Charcoal" data-category="Solid Color - MelaWood"
+                           data-image="https://pgbison.co.za/wp-content/uploads/2024/06/2023_PGBison_MW_Charcoal-800x800.jpg"
+                           data-description="Deep charcoal grey for dramatic, sophisticated designs. A versatile dark neutral."
+                           data-finish="Natural Touch" data-size="2750mm x 1830mm" data-thickness="16mm / 18mm">
+                            <img src="https://pgbison.co.za/wp-content/uploads/2024/06/2023_PGBison_MW_Charcoal-800x800.jpg" alt="Charcoal">
+                            <div class="color-swatch-label">Charcoal</div>
+                        </a>
                     </div>
+                </div>
+            </div>
+            
+            <!-- More Colors CTA -->
+            <div class="text-center mt-5" data-aos="fade-up">
+                <p class="text-muted mb-3">Over 50+ colors available in store</p>
+                <div class="d-flex gap-3 justify-content-center flex-wrap">
+                    <a href="contact.html" class="btn btn-primary"><i class="fa fa-palette me-2"></i>Request Free Samples</a>
+                    <a href="tel:0119456199" class="btn btn-outline-dark"><i class="fa fa-phone me-2"></i>Call for Stock Check</a>
                 </div>
             </div>
         </div>
@@ -756,7 +1153,7 @@
             <div class="featured-product" data-aos="fade-up">
                 <div class="row align-items-center">
                     <div class="col-lg-6">
-                        <span class="badge bg-danger mb-3">Featured</span>
+                        <span class="badge bg-danger mb-3">Featured Product</span>
                         <h3>SupaMatt Premium Finish</h3>
                         <p>Experience the ultimate in luxury with our SupaMatt collection. The soft, sophisticated matt finish adds elegance to any setting while using advanced technology to reduce fingerprint visibility.</p>
                         <ul class="list-unstyled">
@@ -765,10 +1162,13 @@
                             <li class="mb-2"><i class="fa fa-check-circle text-primary me-2"></i> Protective film for pristine delivery</li>
                             <li class="mb-2"><i class="fa fa-check-circle text-primary me-2"></i> Natural touch finish on reverse</li>
                         </ul>
-                        <a href="contact.html" class="btn btn-light mt-3">Get Quote</a>
+                        <div class="d-flex gap-3 flex-wrap mt-4">
+                            <a href="contact.html" class="btn btn-light"><i class="fa fa-file-alt me-2"></i>Get Quote</a>
+                            <a href="tel:0119456199" class="btn btn-outline-light"><i class="fa fa-phone me-2"></i>Call Now</a>
+                        </div>
                     </div>
                     <div class="col-lg-6 mt-4 mt-lg-0">
-                        <img src="https://pgbison.co.za/wp-content/uploads/2024/08/0J1A2375p-MAIN-retouched_Resized-683x1024.jpg" class="img-fluid" alt="SupaMatt Premium">
+                        <img src="https://pgbison.co.za/wp-content/uploads/2024/08/0J1A2375p-MAIN-retouched_Resized-683x1024.jpg" class="img-fluid rounded-4" alt="SupaMatt Premium" style="max-height: 450px; width: 100%; object-fit: cover;">
                     </div>
                 </div>
             </div>
@@ -786,33 +1186,113 @@
             </div>
             
             <div class="row g-4 mt-4">
-                <div class="col-lg-6" data-aos="fade-right">
-                    <div class="product-card h-100">
-                        <div class="product-card-img" style="height: 300px;">
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                    <a href="#" class="product-card" data-bs-toggle="modal" data-bs-target="#productModal"
+                       data-name="Zaros" data-category="Luxora Premium Worktops"
+                       data-image="https://pgbison.co.za/wp-content/uploads/2025/04/Zaros.jpg"
+                       data-description="Elegant marble-effect worktop with subtle grey veining. The Luxora range features NobleCore substrate for seamless edge profiling."
+                       data-finish="Luxora Textured" data-size="3660mm x 600mm / 1200mm" data-thickness="18mm">
+                        <div class="product-card-img" style="height: 280px;">
                             <img src="https://pgbison.co.za/wp-content/uploads/2025/04/Zaros.jpg" alt="Zaros Premium Worktop">
                             <div class="product-card-overlay">
-                                <span><i class="fa fa-search me-2"></i>View Collection</span>
+                                <span class="btn btn-primary btn-sm"><i class="fa fa-eye me-2"></i>Quick View</span>
                             </div>
                         </div>
                         <div class="product-card-body">
-                            <h5>Stone & Marble Effects</h5>
-                            <p>Premium stone-inspired finishes including marble veining and granite effects. Perfect for creating luxurious kitchen spaces without the premium price tag.</p>
+                            <h5>Zaros</h5>
+                            <p>Elegant marble-effect with subtle grey veining for luxurious kitchens.</p>
                         </div>
-                    </div>
+                    </a>
                 </div>
-                <div class="col-lg-6" data-aos="fade-left">
-                    <div class="product-card h-100">
-                        <div class="product-card-img" style="height: 300px;">
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                    <a href="#" class="product-card" data-bs-toggle="modal" data-bs-target="#productModal"
+                       data-name="Carisbrooke" data-category="Luxora Premium Worktops"
+                       data-image="https://pgbison.co.za/wp-content/uploads/2025/04/Carisbrooke.jpg"
+                       data-description="Warm wood-effect worktop with authentic grain patterns. Perfect for creating a natural, organic feel in your kitchen."
+                       data-finish="Luxora Textured" data-size="3660mm x 600mm / 1200mm" data-thickness="18mm">
+                        <div class="product-card-img" style="height: 280px;">
                             <img src="https://pgbison.co.za/wp-content/uploads/2025/04/Carisbrooke.jpg" alt="Carisbrooke Worktop">
                             <div class="product-card-overlay">
-                                <span><i class="fa fa-search me-2"></i>View Collection</span>
+                                <span class="btn btn-primary btn-sm"><i class="fa fa-eye me-2"></i>Quick View</span>
                             </div>
                         </div>
                         <div class="product-card-body">
-                            <h5>Woodgrain Worktops</h5>
-                            <p>Authentic wood-look surfaces that bring warmth to your space. Sealed edges provide protection against moisture and ensure long-lasting beauty.</p>
+                            <h5>Carisbrooke</h5>
+                            <p>Warm wood-effect with authentic grain for a natural, organic feel.</p>
                         </div>
-                    </div>
+                    </a>
+                </div>
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+                    <a href="#" class="product-card" data-bs-toggle="modal" data-bs-target="#productModal"
+                       data-name="Barchand" data-category="Luxora Premium Worktops"
+                       data-image="https://pgbison.co.za/wp-content/uploads/2025/04/Barchand-1024x605.jpg"
+                       data-description="Neutral taupe concrete texture with subtle speckles. Modern industrial aesthetic with premium Luxora quality."
+                       data-finish="Luxora Textured" data-size="3660mm x 600mm / 1200mm" data-thickness="18mm">
+                        <div class="product-card-img" style="height: 280px;">
+                            <img src="https://pgbison.co.za/wp-content/uploads/2025/04/Barchand-1024x605.jpg" alt="Barchand Worktop">
+                            <div class="product-card-overlay">
+                                <span class="btn btn-primary btn-sm"><i class="fa fa-eye me-2"></i>Quick View</span>
+                            </div>
+                        </div>
+                        <div class="product-card-body">
+                            <h5>Barchand</h5>
+                            <p>Neutral concrete texture with modern industrial aesthetic.</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
+                    <a href="#" class="product-card" data-bs-toggle="modal" data-bs-target="#productModal"
+                       data-name="Nero Marquina" data-category="Luxora Premium Worktops"
+                       data-image="https://pgbison.co.za/wp-content/uploads/2024/08/Nero-Marquina.jpg"
+                       data-description="Striking black marble effect with elegant white veining. Premium luxury worktop for high-end kitchen designs."
+                       data-finish="Luxora High Gloss" data-size="3660mm x 600mm / 1200mm" data-thickness="18mm">
+                        <div class="product-card-img" style="height: 280px;">
+                            <img src="https://pgbison.co.za/wp-content/uploads/2024/08/Nero-Marquina.jpg" alt="Nero Marquina Worktop">
+                            <div class="product-card-overlay">
+                                <span class="btn btn-primary btn-sm"><i class="fa fa-eye me-2"></i>Quick View</span>
+                            </div>
+                        </div>
+                        <div class="product-card-body">
+                            <h5>Nero Marquina</h5>
+                            <p>Striking black marble with elegant white veining for luxury kitchens.</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="500">
+                    <a href="#" class="product-card" data-bs-toggle="modal" data-bs-target="#productModal"
+                       data-name="Bianco Statuario" data-category="Luxora Premium Worktops"
+                       data-image="https://pgbison.co.za/wp-content/uploads/2024/08/Bianco-Statuario.jpg"
+                       data-description="Classic white marble effect with subtle grey veining. Timeless elegance for sophisticated kitchen spaces."
+                       data-finish="Luxora High Gloss" data-size="3660mm x 600mm / 1200mm" data-thickness="18mm">
+                        <div class="product-card-img" style="height: 280px;">
+                            <img src="https://pgbison.co.za/wp-content/uploads/2024/08/Bianco-Statuario.jpg" alt="Bianco Statuario Worktop">
+                            <div class="product-card-overlay">
+                                <span class="btn btn-primary btn-sm"><i class="fa fa-eye me-2"></i>Quick View</span>
+                            </div>
+                        </div>
+                        <div class="product-card-body">
+                            <h5>Bianco Statuario</h5>
+                            <p>Classic white marble with subtle grey veining for timeless elegance.</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="600">
+                    <a href="#" class="product-card" data-bs-toggle="modal" data-bs-target="#productModal"
+                       data-name="Gloss Black" data-category="Premium Worktops"
+                       data-image="https://pgbison.co.za/wp-content/uploads/2024/12/2023_PGBison_Supa_SuperBlack-800x800.jpg"
+                       data-description="Ultra-sleek black worktop with high-gloss finish. Perfect for modern, minimalist kitchen designs."
+                       data-finish="High Gloss" data-size="3660mm x 600mm / 1200mm" data-thickness="18mm">
+                        <div class="product-card-img" style="height: 280px;">
+                            <img src="https://pgbison.co.za/wp-content/uploads/2024/12/2023_PGBison_Supa_SuperBlack-800x800.jpg" alt="Gloss Black Worktop">
+                            <div class="product-card-overlay">
+                                <span class="btn btn-primary btn-sm"><i class="fa fa-eye me-2"></i>Quick View</span>
+                            </div>
+                        </div>
+                        <div class="product-card-body">
+                            <h5>Gloss Black</h5>
+                            <p>Ultra-sleek black with high-gloss finish for modern minimalist designs.</p>
+                        </div>
+                    </a>
                 </div>
             </div>
             
@@ -838,10 +1318,114 @@
                         </div>
                     </div>
                 </div>
+                <a href="contact.html" class="btn btn-primary mt-4"><i class="fa fa-calculator me-2"></i>Get Worktop Quote</a>
             </div>
         </div>
     </section>
     <!-- Worktops Section End -->
+
+
+    <!-- Edge Banding Section Start -->
+    <section id="edge-banding" class="product-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6" data-aos="fade-right">
+                    <div class="section-header">
+                        <h2>Edge Banding</h2>
+                        <p>Complete your furniture projects with matching edge banding. We stock a wide range of edge tapes to match all our board colors, ensuring a seamless, professional finish.</p>
+                    </div>
+                    <div class="row g-3 mb-4">
+                        <div class="col-6">
+                            <div class="d-flex align-items-center p-3 bg-light rounded-3">
+                                <i class="fa fa-ruler-combined fa-2x text-primary me-3"></i>
+                                <div>
+                                    <h6 class="mb-0">0.4mm Edge Tape</h6>
+                                    <small class="text-muted">Standard finishing</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="d-flex align-items-center p-3 bg-light rounded-3">
+                                <i class="fa fa-layer-group fa-2x text-primary me-3"></i>
+                                <div>
+                                    <h6 class="mb-0">1mm Edge Tape</h6>
+                                    <small class="text-muted">Premium finishing</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="d-flex align-items-center p-3 bg-light rounded-3">
+                                <i class="fa fa-cube fa-2x text-primary me-3"></i>
+                                <div>
+                                    <h6 class="mb-0">2mm Edge Tape</h6>
+                                    <small class="text-muted">Heavy-duty finishing</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="d-flex align-items-center p-3 bg-light rounded-3">
+                                <i class="fa fa-palette fa-2x text-primary me-3"></i>
+                                <div>
+                                    <h6 class="mb-0">Color Matching</h6>
+                                    <small class="text-muted">All board colors</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="d-flex gap-3 flex-wrap">
+                        <a href="contact.html" class="btn btn-primary"><i class="fa fa-shopping-cart me-2"></i>Order Edge Banding</a>
+                        <a href="tel:0119456199" class="btn btn-outline-primary"><i class="fa fa-phone me-2"></i>Check Stock</a>
+                    </div>
+                </div>
+                <div class="col-lg-6 mt-4 mt-lg-0" data-aos="fade-left">
+                    <div class="row g-3">
+                        <div class="col-6">
+                            <a href="#" class="color-swatch d-block" data-bs-toggle="modal" data-bs-target="#productModal"
+                               data-name="Super Black Edge" data-category="Edge Banding - 1mm"
+                               data-image="https://pgbison.co.za/wp-content/uploads/2024/12/2023_PGBison_Supa_SuperBlack-800x800.jpg"
+                               data-description="Matching edge tape for Super Black boards. Available in 0.4mm, 1mm, and 2mm widths."
+                               data-finish="Smooth" data-size="50m Roll" data-thickness="0.4mm / 1mm / 2mm">
+                                <img src="https://pgbison.co.za/wp-content/uploads/2024/12/2023_PGBison_Supa_SuperBlack-800x800.jpg" alt="Super Black Edge">
+                                <div class="color-swatch-label">Super Black</div>
+                            </a>
+                        </div>
+                        <div class="col-6">
+                            <a href="#" class="color-swatch d-block" data-bs-toggle="modal" data-bs-target="#productModal"
+                               data-name="Iceberg White Edge" data-category="Edge Banding - 1mm"
+                               data-image="https://pgbison.co.za/wp-content/uploads/2024/06/2023_PGBison_MW_IcebergWhite-800x800.jpg"
+                               data-description="Matching edge tape for Iceberg White boards. Perfect seamless finish."
+                               data-finish="Smooth" data-size="50m Roll" data-thickness="0.4mm / 1mm / 2mm">
+                                <img src="https://pgbison.co.za/wp-content/uploads/2024/06/2023_PGBison_MW_IcebergWhite-800x800.jpg" alt="Iceberg White Edge">
+                                <div class="color-swatch-label" style="color: #333;">Iceberg White</div>
+                            </a>
+                        </div>
+                        <div class="col-6">
+                            <a href="#" class="color-swatch d-block" data-bs-toggle="modal" data-bs-target="#productModal"
+                               data-name="Farasan Edge" data-category="Edge Banding - Woodgrain"
+                               data-image="https://pgbison.co.za/wp-content/uploads/2025/04/Farasan_1000x1500mm-72dpi--683x1024.jpg"
+                               data-description="Matching woodgrain edge tape for Farasan boards. Authentic wood pattern."
+                               data-finish="Textured Woodgrain" data-size="50m Roll" data-thickness="1mm / 2mm">
+                                <img src="https://pgbison.co.za/wp-content/uploads/2025/04/Farasan_1000x1500mm-72dpi--683x1024.jpg" alt="Farasan Edge">
+                                <div class="color-swatch-label">Farasan Oak</div>
+                            </a>
+                        </div>
+                        <div class="col-6">
+                            <a href="#" class="color-swatch d-block" data-bs-toggle="modal" data-bs-target="#productModal"
+                               data-name="Storm Grey Edge" data-category="Edge Banding - 1mm"
+                               data-image="https://pgbison.co.za/wp-content/uploads/2024/12/2023_PGBison_Supa_StormGrey-800x800.jpg"
+                               data-description="Matching edge tape for Storm Grey boards. Smooth SupaMatt finish."
+                               data-finish="Smooth Matte" data-size="50m Roll" data-thickness="0.4mm / 1mm / 2mm">
+                                <img src="https://pgbison.co.za/wp-content/uploads/2024/12/2023_PGBison_Supa_StormGrey-800x800.jpg" alt="Storm Grey Edge">
+                                <div class="color-swatch-label">Storm Grey</div>
+                            </a>
+                        </div>
+                    </div>
+                    <p class="text-muted mt-3 text-center"><small><i class="fa fa-info-circle me-1"></i> Edge banding available for all board colors in stock</small></p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Edge Banding Section End -->
 
 
     <!-- Inspiration Gallery Start -->
@@ -853,40 +1437,40 @@
             </div>
             
             <div class="inspiration-gallery mt-5" data-aos="fade-up" data-aos-delay="200">
-                <div class="gallery-item">
+                <a href="project.html" class="gallery-item">
                     <img src="https://pgbison.co.za/wp-content/uploads/2024/08/0J1A4682p-MAIN-retouched_Resized-1024x683.jpg" alt="Modern Kitchen">
                     <div class="gallery-item-overlay">
                         <h6>Modern Kitchen Design</h6>
                     </div>
-                </div>
-                <div class="gallery-item">
+                </a>
+                <a href="project.html" class="gallery-item">
                     <img src="https://pgbison.co.za/wp-content/uploads/2024/08/0J1A2081p-retouched_Resized-683x1024.jpg" alt="Minimalist Space">
                     <div class="gallery-item-overlay">
                         <h6>Minimalist Living</h6>
                     </div>
-                </div>
-                <div class="gallery-item">
+                </a>
+                <a href="project.html" class="gallery-item">
                     <img src="https://pgbison.co.za/wp-content/uploads/2024/08/0J1A2330p-MAIN-retouched_Resized-683x1024.jpg" alt="Bedroom Wardrobe">
                     <div class="gallery-item-overlay">
                         <h6>Bedroom Storage</h6>
                     </div>
-                </div>
-                <div class="gallery-item">
+                </a>
+                <a href="project.html" class="gallery-item">
                     <img src="https://pgbison.co.za/wp-content/uploads/2024/08/0J1A2501p-MAIN-retouched_Resized-1024x683.jpg" alt="Elegant Kitchen">
                     <div class="gallery-item-overlay">
                         <h6>Elegant Interiors</h6>
                     </div>
-                </div>
-                <div class="gallery-item">
+                </a>
+                <a href="project.html" class="gallery-item">
                     <img src="https://pgbison.co.za/wp-content/uploads/2025/08/PG-Bison-Meadow-House-27_2_25_0803_Comped-Kara-Blu-515x656.webp" alt="Office Space">
                     <div class="gallery-item-overlay">
                         <h6>Kara Blu Design</h6>
                     </div>
-                </div>
+                </a>
             </div>
             
             <div class="text-center mt-5" data-aos="fade-up">
-                <a href="project.html" class="btn btn-primary btn-lg px-5">View All Projects</a>
+                <a href="project.html" class="btn btn-primary btn-lg px-5"><i class="fa fa-images me-2"></i>View All Projects</a>
             </div>
         </div>
     </section>
@@ -894,7 +1478,7 @@
 
 
     <!-- Hardware Section Start -->
-    <section class="product-section">
+    <section id="hardware" class="product-section">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-6 order-lg-2" data-aos="fade-left">
@@ -904,43 +1488,46 @@
                     </div>
                     <div class="row g-3">
                         <div class="col-sm-6">
-                            <div class="d-flex align-items-center p-3 bg-light rounded-3">
+                            <a href="contact.html" class="d-flex align-items-center p-3 bg-light rounded-3 text-decoration-none text-dark" style="transition: all 0.3s ease;">
                                 <i class="fa fa-door-open fa-2x text-primary me-3"></i>
                                 <span class="fw-bold">Cabinet Hinges</span>
-                            </div>
+                            </a>
                         </div>
                         <div class="col-sm-6">
-                            <div class="d-flex align-items-center p-3 bg-light rounded-3">
+                            <a href="contact.html" class="d-flex align-items-center p-3 bg-light rounded-3 text-decoration-none text-dark" style="transition: all 0.3s ease;">
                                 <i class="fa fa-grip-lines fa-2x text-primary me-3"></i>
                                 <span class="fw-bold">Drawer Slides</span>
-                            </div>
+                            </a>
                         </div>
                         <div class="col-sm-6">
-                            <div class="d-flex align-items-center p-3 bg-light rounded-3">
+                            <a href="contact.html" class="d-flex align-items-center p-3 bg-light rounded-3 text-decoration-none text-dark" style="transition: all 0.3s ease;">
                                 <i class="fa fa-hand-point-up fa-2x text-primary me-3"></i>
                                 <span class="fw-bold">Handles & Knobs</span>
-                            </div>
+                            </a>
                         </div>
                         <div class="col-sm-6">
-                            <div class="d-flex align-items-center p-3 bg-light rounded-3">
+                            <a href="contact.html" class="d-flex align-items-center p-3 bg-light rounded-3 text-decoration-none text-dark" style="transition: all 0.3s ease;">
                                 <i class="fa fa-arrows-alt-h fa-2x text-primary me-3"></i>
                                 <span class="fw-bold">Sliding Systems</span>
-                            </div>
+                            </a>
                         </div>
                         <div class="col-sm-6">
-                            <div class="d-flex align-items-center p-3 bg-light rounded-3">
+                            <a href="contact.html" class="d-flex align-items-center p-3 bg-light rounded-3 text-decoration-none text-dark" style="transition: all 0.3s ease;">
                                 <i class="fa fa-lock fa-2x text-primary me-3"></i>
                                 <span class="fw-bold">Locks & Catches</span>
-                            </div>
+                            </a>
                         </div>
                         <div class="col-sm-6">
-                            <div class="d-flex align-items-center p-3 bg-light rounded-3">
+                            <a href="contact.html" class="d-flex align-items-center p-3 bg-light rounded-3 text-decoration-none text-dark" style="transition: all 0.3s ease;">
                                 <i class="fa fa-border-all fa-2x text-primary me-3"></i>
                                 <span class="fw-bold">Edge Banding</span>
-                            </div>
+                            </a>
                         </div>
                     </div>
-                    <a href="service.html" class="btn btn-primary mt-4">View Services</a>
+                    <div class="d-flex gap-3 flex-wrap mt-4">
+                        <a href="service.html" class="btn btn-primary"><i class="fa fa-cogs me-2"></i>View Services</a>
+                        <a href="contact.html" class="btn btn-outline-primary"><i class="fa fa-envelope me-2"></i>Enquire Now</a>
+                    </div>
                 </div>
                 <div class="col-lg-6 order-lg-1 mb-4 mb-lg-0" data-aos="fade-right">
                     <div class="position-relative">
@@ -999,6 +1586,8 @@
                     <a class="btn btn-link" href="#woodgrains">Woodgrains</a>
                     <a class="btn btn-link" href="#solid-colors">Solid Colors</a>
                     <a class="btn btn-link" href="#worktops">Worktops</a>
+                    <a class="btn btn-link" href="#edge-banding">Edge Banding</a>
+                    <a class="btn btn-link" href="#hardware">Hardware</a>
                 </div>
                 <div class="col-lg-3 col-md-6">
                     <h5 class="text-white mb-4">Business Hours</h5>
@@ -1028,6 +1617,60 @@
     <a href="#" class="btn btn-lg btn-primary btn-lg-square rounded-circle back-to-top"><i class="bi bi-arrow-up"></i></a>
 
 
+    <!-- Product Detail Modal -->
+    <div class="modal fade product-modal" id="productModal" tabindex="-1" aria-labelledby="productModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="product-main-image">
+                                <img id="modalProductImage" src="" alt="Product Image">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="product-info">
+                                <p class="product-category" id="modalProductCategory"></p>
+                                <h4 id="modalProductName"></h4>
+                                <p id="modalProductDescription" class="text-muted"></p>
+                                
+                                <div class="product-specs">
+                                    <h6><i class="fa fa-info-circle me-2 text-primary"></i>Specifications</h6>
+                                    <div class="spec-item">
+                                        <span class="text-muted">Finish</span>
+                                        <span class="fw-bold" id="modalProductFinish"></span>
+                                    </div>
+                                    <div class="spec-item">
+                                        <span class="text-muted">Board Size</span>
+                                        <span class="fw-bold" id="modalProductSize"></span>
+                                    </div>
+                                    <div class="spec-item">
+                                        <span class="text-muted">Thickness</span>
+                                        <span class="fw-bold" id="modalProductThickness"></span>
+                                    </div>
+                                </div>
+                                
+                                <div class="d-flex gap-2 flex-wrap mt-4">
+                                    <a href="contact.html" class="btn btn-primary flex-grow-1"><i class="fa fa-file-alt me-2"></i>Get Quote</a>
+                                    <a href="tel:0119456199" class="btn btn-outline-primary"><i class="fa fa-phone"></i></a>
+                                    <a href="https://wa.me/27823505953" class="btn btn-success"><i class="fab fa-whatsapp"></i></a>
+                                </div>
+                                
+                                <div class="mt-3 text-center">
+                                    <small class="text-muted"><i class="fa fa-truck me-1"></i> Delivery available | <i class="fa fa-cut me-1"></i> Cut-to-size service</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
     <!-- JavaScript Libraries -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
@@ -1049,6 +1692,31 @@
             duration: 800,
             once: true,
             offset: 100
+        });
+        
+        // Product Modal Handler
+        var productModal = document.getElementById('productModal');
+        productModal.addEventListener('show.bs.modal', function (event) {
+            var button = event.relatedTarget;
+            
+            // Extract product data from data attributes
+            var name = button.getAttribute('data-name');
+            var category = button.getAttribute('data-category');
+            var image = button.getAttribute('data-image');
+            var description = button.getAttribute('data-description');
+            var finish = button.getAttribute('data-finish');
+            var size = button.getAttribute('data-size');
+            var thickness = button.getAttribute('data-thickness');
+            
+            // Update modal content
+            document.getElementById('modalProductName').textContent = name;
+            document.getElementById('modalProductCategory').textContent = category;
+            document.getElementById('modalProductImage').src = image;
+            document.getElementById('modalProductImage').alt = name;
+            document.getElementById('modalProductDescription').textContent = description;
+            document.getElementById('modalProductFinish').textContent = finish;
+            document.getElementById('modalProductSize').textContent = size;
+            document.getElementById('modalProductThickness').textContent = thickness;
         });
         
         // Smooth scroll for category navigation
@@ -1091,6 +1759,18 @@
                 if (link.getAttribute('href') === '#' + current) {
                     link.classList.add('active');
                 }
+            });
+        });
+        
+        // Hardware items hover effect
+        document.querySelectorAll('.bg-light.rounded-3').forEach(item => {
+            item.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-3px)';
+                this.style.boxShadow = '0 5px 20px rgba(0,0,0,0.1)';
+            });
+            item.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0)';
+                this.style.boxShadow = 'none';
             });
         });
     </script>

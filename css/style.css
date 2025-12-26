@@ -1544,6 +1544,29 @@ html, body {
     transform: scale(1.05);
 }
 
+/* Homepage swatch hover effects */
+.swatch-hover {
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.swatch-hover:hover {
+    transform: scale(1.1) rotate(-3deg);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25) !important;
+}
+
+.swatch-hover img {
+    transition: transform 0.3s ease;
+}
+
+.swatch-hover:hover img {
+    transform: scale(1.05);
+}
+
+.color-swatch-link:hover small {
+    color: var(--primary) !important;
+}
+
 /* Inspiration section */
 .inspiration-card {
     position: relative;
@@ -1586,12 +1609,26 @@ html, body {
     margin: 0;
 }
 
-@media (max-width: 768px) {
-    .product-showcase-card img {
-        height: 250px !important;
-    }
-    
-    .product-grid {
-        grid-template-columns: 1fr;
-    }
+/* Product category cards on homepage */
+.product-category-card {
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.product-category-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3) !important;
+}
+
+.product-category-card:hover img {
+    transform: scale(1.1);
+}
+
+.product-category-card .btn {
+    transition: all 0.3s ease;
+}
+
+.product-category-card:hover .btn {
+    background: var(--primary);
+    border-color: var(--primary);
 }
