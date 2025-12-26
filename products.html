@@ -1,0 +1,1099 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Gwalava Boards | Products</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Color Boards, Melamine Boards, Woodgrains, Worktops, Kitchen Cabinets, Furniture Boards" name="keywords">
+    <meta content="Explore our wide range of premium color boards, woodgrains, worktops, and decorative surfaces for your furniture projects." name="description">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="img/favicon.png" />
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600&family=Rubik:wght@500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/animate/animate.min.css" rel="stylesheet">
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
+
+    <!-- Products Page Specific Styles -->
+    <style>
+        /* Hero Section */
+        .products-hero {
+            position: relative;
+            height: 60vh;
+            min-height: 400px;
+            background: linear-gradient(135deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.4) 100%),
+                        url('https://pgbison.co.za/wp-content/uploads/2025/08/PG_Bison_Home_Banner-1.webp') center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        
+        .products-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, var(--primary) 0%, transparent 50%);
+            opacity: 0.3;
+        }
+        
+        .products-hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            color: white;
+            padding: 0 20px;
+        }
+        
+        .products-hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
+        }
+        
+        .products-hero p {
+            font-size: 1.25rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        /* Category Navigation */
+        .category-nav {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            padding: 1.5rem 0;
+            position: sticky;
+            top: 60px;
+            z-index: 100;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+        }
+        
+        .category-nav .nav-pills {
+            flex-wrap: nowrap;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+        
+        .category-nav .nav-pills::-webkit-scrollbar {
+            display: none;
+        }
+        
+        .category-nav .nav-link {
+            color: rgba(255,255,255,0.8);
+            white-space: nowrap;
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            margin: 0 0.25rem;
+            font-weight: 500;
+        }
+        
+        .category-nav .nav-link:hover,
+        .category-nav .nav-link.active {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-2px);
+        }
+        
+        /* Product Category Sections */
+        .product-section {
+            padding: 5rem 0;
+        }
+        
+        .product-section:nth-child(even) {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        }
+        
+        .section-header {
+            margin-bottom: 3rem;
+        }
+        
+        .section-header h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-header h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: var(--primary);
+            border-radius: 2px;
+        }
+        
+        .section-header p {
+            font-size: 1.1rem;
+            color: #666;
+            max-width: 700px;
+        }
+        
+        /* Product Cards */
+        .product-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            transition: all 0.4s ease;
+            height: 100%;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+        }
+        
+        .product-card-img {
+            position: relative;
+            height: 250px;
+            overflow: hidden;
+        }
+        
+        .product-card-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .product-card:hover .product-card-img img {
+            transform: scale(1.1);
+        }
+        
+        .product-card-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(180deg, transparent 50%, rgba(0,0,0,0.7) 100%);
+            display: flex;
+            align-items: flex-end;
+            padding: 1.5rem;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .product-card:hover .product-card-overlay {
+            opacity: 1;
+        }
+        
+        .product-card-overlay span {
+            color: white;
+            font-weight: 500;
+        }
+        
+        .product-card-body {
+            padding: 1.5rem;
+        }
+        
+        .product-card-body h5 {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        
+        .product-card-body p {
+            color: #666;
+            font-size: 0.95rem;
+            margin: 0;
+        }
+        
+        /* Color Swatches Grid */
+        .color-swatch-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .color-swatch {
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            aspect-ratio: 1;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+        
+        .color-swatch:hover {
+            transform: scale(1.05) rotate(-2deg);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+        }
+        
+        .color-swatch img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .color-swatch-label {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 1rem 0.5rem;
+            background: linear-gradient(transparent, rgba(0,0,0,0.8));
+            color: white;
+            font-size: 0.85rem;
+            font-weight: 500;
+            text-align: center;
+        }
+        
+        /* Featured Product */
+        .featured-product {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            border-radius: 30px;
+            overflow: hidden;
+            padding: 3rem;
+            color: white;
+        }
+        
+        .featured-product h3 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        
+        .featured-product p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            margin-bottom: 2rem;
+        }
+        
+        .featured-product img {
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+        
+        /* Inspiration Gallery */
+        .inspiration-gallery {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: repeat(2, 250px);
+            gap: 1rem;
+        }
+        
+        .inspiration-gallery .gallery-item:nth-child(1) {
+            grid-column: span 2;
+            grid-row: span 2;
+        }
+        
+        .gallery-item {
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            cursor: pointer;
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+        
+        .gallery-item-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(transparent 60%, rgba(0,0,0,0.8));
+            display: flex;
+            align-items: flex-end;
+            padding: 1.5rem;
+            transition: background 0.3s ease;
+        }
+        
+        .gallery-item:hover .gallery-item-overlay {
+            background: linear-gradient(transparent 40%, rgba(202,11,11,0.8));
+        }
+        
+        .gallery-item-overlay h6 {
+            color: white;
+            margin: 0;
+            font-weight: 600;
+        }
+        
+        /* CTA Section */
+        .products-cta {
+            background: linear-gradient(135deg, var(--primary) 0%, #a00909 100%);
+            padding: 5rem 0;
+            text-align: center;
+            color: white;
+        }
+        
+        .products-cta h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        
+        .products-cta p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+        
+        .products-cta .btn-light {
+            padding: 1rem 2.5rem;
+            font-weight: 600;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+        }
+        
+        .products-cta .btn-light:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        
+        /* Responsive */
+        @media (max-width: 992px) {
+            .products-hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .inspiration-gallery {
+                grid-template-columns: repeat(2, 1fr);
+                grid-template-rows: repeat(3, 200px);
+            }
+            
+            .inspiration-gallery .gallery-item:nth-child(1) {
+                grid-column: span 2;
+                grid-row: span 1;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .products-hero {
+                height: 50vh;
+            }
+            
+            .products-hero h1 {
+                font-size: 2rem;
+            }
+            
+            .section-header h2 {
+                font-size: 1.8rem;
+            }
+            
+            .color-swatch-grid {
+                grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+                gap: 1rem;
+            }
+            
+            .inspiration-gallery {
+                grid-template-columns: 1fr;
+                grid-template-rows: repeat(5, 200px);
+            }
+            
+            .inspiration-gallery .gallery-item:nth-child(1) {
+                grid-column: span 1;
+            }
+            
+            .featured-product {
+                padding: 2rem 1.5rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Spinner Start -->
+    <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+        <div class="spinner-border text-primary" role="status" style="width: 3rem; height: 3rem;"></div>
+    </div>
+    <!-- Spinner End -->
+
+
+    <!-- Topbar Start -->
+    <div class="container-fluid bg-dark px-0">
+        <div class="row g-0 d-none d-lg-flex">
+            <div class="col-lg-6 ps-5 text-start">
+                <div class="h-100 d-inline-flex align-items-center text-white">
+                    <span>Follow Us:</span>
+                    <a class="btn btn-link text-light" href="https://www.facebook.com/profile.php?id=100065189550617&sk=about_contact_and_basic_info"><i class="fab fa-facebook-f"></i></a>
+                    <a class="btn btn-link text-light" href=""><i class="fab fa-linkedin-in"></i></a>
+                    <a class="btn btn-link text-light" href=""><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+            <div class="col-lg-6 text-end">
+                <div class="h-100 topbar-right d-inline-flex align-items-center text-white py-2 px-5">
+                    <span class="fs-5 fw-bold me-2"><i class="fa fa-phone-alt me-2"></i>Call Us:</span>
+                    <span class="fs-5 fw-bold"> <a href="tel:0119456199" style="color: white;">(011) 945 6199</a> / <a href="tel:0823505953" style="color: white;">082 350 5953</a> </span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Topbar End -->
+
+
+    <!-- Navbar Start -->
+    <nav class="navbar navbar-expand-lg bg-white navbar-light sticky-top py-0 pe-5">
+        <a href="index.html" class="navbar-brand ps-5 me-0">
+            <h1 class="text-white m-0">Gwalava Boards</h1>
+        </a>
+        <button type="button" class="navbar-toggler me-0" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <div class="navbar-nav ms-auto p-4 p-lg-0">
+                <a href="index.html" class="nav-item nav-link">Home</a>
+                <a href="about.html" class="nav-item nav-link">About</a>
+                <a href="service.html" class="nav-item nav-link">Services</a>
+                <a href="products.html" class="nav-item nav-link active">Products</a>
+                <a href="project.html" class="nav-item nav-link">Projects</a>
+                <a href="contact.html" class="nav-item nav-link">Contact</a>
+            </div>
+            <a href="contact.html" class="btn btn-primary px-3 d-none d-lg-block">Get A Quote</a>
+        </div>
+    </nav>
+    <!-- Navbar End -->
+
+
+    <!-- Hero Section Start -->
+    <section class="products-hero">
+        <div class="products-hero-content" data-aos="fade-up">
+            <h1>Beautiful Spaces Start Here</h1>
+            <p>Explore our premium range of decorative boards, woodgrains, and surfaces designed to transform your spaces.</p>
+        </div>
+    </section>
+    <!-- Hero Section End -->
+
+
+    <!-- Category Navigation Start -->
+    <div class="category-nav">
+        <div class="container">
+            <ul class="nav nav-pills justify-content-center">
+                <li class="nav-item">
+                    <a class="nav-link active" href="#melawood">MelaWood Boards</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#woodgrains">Woodgrains</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#solid-colors">Solid Colors</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#worktops">Worktops</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#inspiration">Inspiration</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!-- Category Navigation End -->
+
+
+    <!-- MelaWood Section Start -->
+    <section id="melawood" class="product-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6" data-aos="fade-right">
+                    <div class="section-header">
+                        <h2>MelaWood Boards</h2>
+                        <p>Our premium melamine-faced boards combine durability with style. Perfect for kitchens, wardrobes, and furniture projects. Available in a wide range of finishes including SupaMatt, SupaGloss, and SupaTexture.</p>
+                    </div>
+                    <div class="row g-4">
+                        <div class="col-6">
+                            <div class="d-flex align-items-center">
+                                <div class="flex-shrink-0 btn-lg-square rounded-circle bg-primary">
+                                    <i class="fa fa-check text-white"></i>
+                                </div>
+                                <div class="ms-3">
+                                    <h6 class="mb-0">Scratch Resistant</h6>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="d-flex align-items-center">
+                                <div class="flex-shrink-0 btn-lg-square rounded-circle bg-primary">
+                                    <i class="fa fa-check text-white"></i>
+                                </div>
+                                <div class="ms-3">
+                                    <h6 class="mb-0">Moisture Resistant</h6>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="d-flex align-items-center">
+                                <div class="flex-shrink-0 btn-lg-square rounded-circle bg-primary">
+                                    <i class="fa fa-check text-white"></i>
+                                </div>
+                                <div class="ms-3">
+                                    <h6 class="mb-0">Easy to Clean</h6>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="d-flex align-items-center">
+                                <div class="flex-shrink-0 btn-lg-square rounded-circle bg-primary">
+                                    <i class="fa fa-check text-white"></i>
+                                </div>
+                                <div class="ms-3">
+                                    <h6 class="mb-0">Anti-Bacterial</h6>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="contact.html" class="btn btn-primary mt-4">Request Samples</a>
+                </div>
+                <div class="col-lg-6 mt-4 mt-lg-0" data-aos="fade-left">
+                    <div class="row g-3">
+                        <div class="col-6">
+                            <img src="https://pgbison.co.za/wp-content/uploads/2024/08/0J1A1444f-MAIN-retouched_Resized-1024x683.jpg" class="img-fluid rounded-4 shadow" alt="MelaWood Kitchen Design">
+                        </div>
+                        <div class="col-6">
+                            <img src="https://pgbison.co.za/wp-content/uploads/2024/08/0J1A4753p-MAIN-retouched_Resized-1024x683.jpg" class="img-fluid rounded-4 shadow" alt="MelaWood Interior">
+                        </div>
+                        <div class="col-12">
+                            <img src="https://pgbison.co.za/wp-content/uploads/2024/08/0J1A4503p-MAIN-retouched_Resized-1024x683.jpg" class="img-fluid rounded-4 shadow" alt="Premium MelaWood Kitchen">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- MelaWood Section End -->
+
+
+    <!-- Woodgrains Section Start -->
+    <section id="woodgrains" class="product-section">
+        <div class="container">
+            <div class="section-header text-center mx-auto" style="max-width: 700px;" data-aos="fade-up">
+                <h2 class="mx-auto" style="display: table;">Woodgrain Collection</h2>
+                <p class="mt-4">Discover our extensive range of woodgrain finishes, from light oak to rich walnut. Each design captures the natural beauty of timber while offering the durability of melamine boards.</p>
+            </div>
+            
+            <div class="row g-4 mt-4">
+                <div class="col-lg-4 col-md-6" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="product-card">
+                        <div class="product-card-img">
+                            <img src="https://pgbison.co.za/wp-content/uploads/2025/04/Farasan_1000x1500mm-72dpi--683x1024.jpg" alt="Farasan Oak Woodgrain">
+                            <div class="product-card-overlay">
+                                <span><i class="fa fa-search me-2"></i>View Details</span>
+                            </div>
+                        </div>
+                        <div class="product-card-body">
+                            <h5>Farasan</h5>
+                            <p>Light oak woodgrain with natural texture finish for modern interiors.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="product-card">
+                        <div class="product-card-img">
+                            <img src="https://pgbison.co.za/wp-content/uploads/2025/04/Pasadena_1000x1500mm-72dpi--683x1024.jpg" alt="Pasadena Walnut Woodgrain">
+                            <div class="product-card-overlay">
+                                <span><i class="fa fa-search me-2"></i>View Details</span>
+                            </div>
+                        </div>
+                        <div class="product-card-body">
+                            <h5>Pasadena</h5>
+                            <p>Rich walnut tones perfect for elegant and sophisticated spaces.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="product-card">
+                        <div class="product-card-img">
+                            <img src="https://pgbison.co.za/wp-content/uploads/2025/04/Clydeshaw_1000x1500mm-72dpi-CROP-683x1024.jpg" alt="Clydeshaw Woodgrain">
+                            <div class="product-card-overlay">
+                                <span><i class="fa fa-search me-2"></i>View Details</span>
+                            </div>
+                        </div>
+                        <div class="product-card-body">
+                            <h5>Clydeshaw</h5>
+                            <p>Scandinavian-inspired pine for a warm, inviting atmosphere.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6" data-aos="zoom-in" data-aos-delay="400">
+                    <div class="product-card">
+                        <div class="product-card-img">
+                            <img src="https://pgbison.co.za/wp-content/uploads/2025/04/Earlswood_1000x1500mm-72dpi-CROP--683x1024.jpg" alt="Earlswood SupaTexture">
+                            <div class="product-card-overlay">
+                                <span><i class="fa fa-search me-2"></i>View Details</span>
+                            </div>
+                        </div>
+                        <div class="product-card-body">
+                            <h5>Earlswood</h5>
+                            <p>Classic deep textured grain with subtle variations for timeless appeal.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6" data-aos="zoom-in" data-aos-delay="500">
+                    <div class="product-card">
+                        <div class="product-card-img">
+                            <img src="https://pgbison.co.za/wp-content/uploads/2025/04/Laredo_1000x1500mm-72dpi-CROP-683x1024.jpg" alt="Laredo Woodgrain">
+                            <div class="product-card-overlay">
+                                <span><i class="fa fa-search me-2"></i>View Details</span>
+                            </div>
+                        </div>
+                        <div class="product-card-body">
+                            <h5>Laredo</h5>
+                            <p>Rich brown wood grain with natural patterns for premium furniture.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6" data-aos="zoom-in" data-aos-delay="600">
+                    <div class="product-card">
+                        <div class="product-card-img">
+                            <img src="https://pgbison.co.za/wp-content/uploads/2024/08/Banbridge_1000x1500mm-72dpi-CROP-683x1024.jpg" alt="Banbridge Timber">
+                            <div class="product-card-overlay">
+                                <span><i class="fa fa-search me-2"></i>View Details</span>
+                            </div>
+                        </div>
+                        <div class="product-card-body">
+                            <h5>Banbridge</h5>
+                            <p>Deep wood tones for a bold, statement-making design.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Woodgrains Section End -->
+
+
+    <!-- Solid Colors Section Start -->
+    <section id="solid-colors" class="product-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-5" data-aos="fade-right">
+                    <div class="section-header">
+                        <h2>Solid Colors</h2>
+                        <p>From classic whites to bold statement colors, our solid color range offers endless possibilities for your creative vision. Perfect for contemporary designs and minimalist aesthetics.</p>
+                    </div>
+                </div>
+                <div class="col-lg-7" data-aos="fade-left">
+                    <div class="color-swatch-grid">
+                        <div class="color-swatch">
+                            <img src="https://pgbison.co.za/wp-content/uploads/2024/12/2023_PGBison_Supa_SuperBlack-800x800.jpg" alt="Super Black">
+                            <div class="color-swatch-label">Super Black</div>
+                        </div>
+                        <div class="color-swatch">
+                            <img src="https://pgbison.co.za/wp-content/uploads/2024/12/2023_PGBison_Supa_StormGrey-800x800.jpg" alt="Storm Grey">
+                            <div class="color-swatch-label">Storm Grey</div>
+                        </div>
+                        <div class="color-swatch">
+                            <img src="https://pgbison.co.za/wp-content/uploads/2025/04/Rioverde-800x800.jpg" alt="Rioverde">
+                            <div class="color-swatch-label">Rioverde</div>
+                        </div>
+                        <div class="color-swatch">
+                            <img src="https://pgbison.co.za/wp-content/uploads/2025/04/Nata-800x800.jpg" alt="Nata">
+                            <div class="color-swatch-label" style="color: #333;">Nata</div>
+                        </div>
+                        <div class="color-swatch">
+                            <img src="https://pgbison.co.za/wp-content/uploads/2024/12/New2023_PGBison_Supa_KaraBlu.jpg" alt="Kara Blu">
+                            <div class="color-swatch-label">Kara Blu</div>
+                        </div>
+                        <div class="color-swatch">
+                            <img src="https://pgbison.co.za/wp-content/uploads/2024/06/2023_PGBison_MW_DunblaneGrey-800x800.jpg" alt="Dunblane Grey">
+                            <div class="color-swatch-label">Dunblane Grey</div>
+                        </div>
+                        <div class="color-swatch">
+                            <img src="https://pgbison.co.za/wp-content/uploads/2025/04/Bellavista-800x800.jpg" alt="Bellavista">
+                            <div class="color-swatch-label" style="color: #333;">Bellavista</div>
+                        </div>
+                        <div class="color-swatch">
+                            <img src="https://pgbison.co.za/wp-content/uploads/2024/06/2023_PGBison_MW_IcebergWhite-800x800.jpg" alt="Iceberg White">
+                            <div class="color-swatch-label" style="color: #333;">Iceberg White</div>
+                        </div>
+                        <div class="color-swatch">
+                            <img src="https://pgbison.co.za/wp-content/uploads/2024/06/Petrol-Blue.jpg" alt="Petrol Blue">
+                            <div class="color-swatch-label">Petrol Blue</div>
+                        </div>
+                        <div class="color-swatch">
+                            <img src="https://pgbison.co.za/wp-content/uploads/2024/06/Alegria_1000x1500mm-72dpi-CROP-683x1024.jpg" alt="Alegria">
+                            <div class="color-swatch-label" style="color: #333;">Alegria</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Solid Colors Section End -->
+
+
+    <!-- Featured Product Start -->
+    <section class="py-5">
+        <div class="container">
+            <div class="featured-product" data-aos="fade-up">
+                <div class="row align-items-center">
+                    <div class="col-lg-6">
+                        <span class="badge bg-danger mb-3">Featured</span>
+                        <h3>SupaMatt Premium Finish</h3>
+                        <p>Experience the ultimate in luxury with our SupaMatt collection. The soft, sophisticated matt finish adds elegance to any setting while using advanced technology to reduce fingerprint visibility.</p>
+                        <ul class="list-unstyled">
+                            <li class="mb-2"><i class="fa fa-check-circle text-primary me-2"></i> Ultra-matt finish for vertical applications</li>
+                            <li class="mb-2"><i class="fa fa-check-circle text-primary me-2"></i> Anti-fingerprint technology</li>
+                            <li class="mb-2"><i class="fa fa-check-circle text-primary me-2"></i> Protective film for pristine delivery</li>
+                            <li class="mb-2"><i class="fa fa-check-circle text-primary me-2"></i> Natural touch finish on reverse</li>
+                        </ul>
+                        <a href="contact.html" class="btn btn-light mt-3">Get Quote</a>
+                    </div>
+                    <div class="col-lg-6 mt-4 mt-lg-0">
+                        <img src="https://pgbison.co.za/wp-content/uploads/2024/08/0J1A2375p-MAIN-retouched_Resized-683x1024.jpg" class="img-fluid" alt="SupaMatt Premium">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Featured Product End -->
+
+
+    <!-- Worktops Section Start -->
+    <section id="worktops" class="product-section">
+        <div class="container">
+            <div class="section-header text-center mx-auto" style="max-width: 700px;" data-aos="fade-up">
+                <h2 class="mx-auto" style="display: table;">Premium Worktops</h2>
+                <p class="mt-4">Durable, stylish, and easy to maintain. Our worktop collection combines functionality with beautiful design for kitchens, bathrooms, and workspaces.</p>
+            </div>
+            
+            <div class="row g-4 mt-4">
+                <div class="col-lg-6" data-aos="fade-right">
+                    <div class="product-card h-100">
+                        <div class="product-card-img" style="height: 300px;">
+                            <img src="https://pgbison.co.za/wp-content/uploads/2025/04/Zaros.jpg" alt="Zaros Premium Worktop">
+                            <div class="product-card-overlay">
+                                <span><i class="fa fa-search me-2"></i>View Collection</span>
+                            </div>
+                        </div>
+                        <div class="product-card-body">
+                            <h5>Stone & Marble Effects</h5>
+                            <p>Premium stone-inspired finishes including marble veining and granite effects. Perfect for creating luxurious kitchen spaces without the premium price tag.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6" data-aos="fade-left">
+                    <div class="product-card h-100">
+                        <div class="product-card-img" style="height: 300px;">
+                            <img src="https://pgbison.co.za/wp-content/uploads/2025/04/Carisbrooke.jpg" alt="Carisbrooke Worktop">
+                            <div class="product-card-overlay">
+                                <span><i class="fa fa-search me-2"></i>View Collection</span>
+                            </div>
+                        </div>
+                        <div class="product-card-body">
+                            <h5>Woodgrain Worktops</h5>
+                            <p>Authentic wood-look surfaces that bring warmth to your space. Sealed edges provide protection against moisture and ensure long-lasting beauty.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-5" data-aos="fade-up">
+                <p class="fs-5 text-muted mb-4">All our worktops feature sealed edges for maximum moisture protection</p>
+                <div class="row justify-content-center g-4">
+                    <div class="col-auto">
+                        <div class="d-flex align-items-center">
+                            <i class="fa fa-water fa-2x text-primary me-3"></i>
+                            <span class="fw-bold">Water Resistant</span>
+                        </div>
+                    </div>
+                    <div class="col-auto">
+                        <div class="d-flex align-items-center">
+                            <i class="fa fa-shield-alt fa-2x text-primary me-3"></i>
+                            <span class="fw-bold">Durable Finish</span>
+                        </div>
+                    </div>
+                    <div class="col-auto">
+                        <div class="d-flex align-items-center">
+                            <i class="fa fa-broom fa-2x text-primary me-3"></i>
+                            <span class="fw-bold">Easy to Clean</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Worktops Section End -->
+
+
+    <!-- Inspiration Gallery Start -->
+    <section id="inspiration" class="product-section" style="background: #1a1a2e;">
+        <div class="container">
+            <div class="section-header text-center mx-auto" style="max-width: 700px;" data-aos="fade-up">
+                <h2 class="text-white mx-auto" style="display: table;">Get Inspired</h2>
+                <p class="mt-4 text-white-50">Browse through stunning interior designs created using our premium boards and surfaces. Find inspiration for your next project.</p>
+            </div>
+            
+            <div class="inspiration-gallery mt-5" data-aos="fade-up" data-aos-delay="200">
+                <div class="gallery-item">
+                    <img src="https://pgbison.co.za/wp-content/uploads/2024/08/0J1A4682p-MAIN-retouched_Resized-1024x683.jpg" alt="Modern Kitchen">
+                    <div class="gallery-item-overlay">
+                        <h6>Modern Kitchen Design</h6>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://pgbison.co.za/wp-content/uploads/2024/08/0J1A2081p-retouched_Resized-683x1024.jpg" alt="Minimalist Space">
+                    <div class="gallery-item-overlay">
+                        <h6>Minimalist Living</h6>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://pgbison.co.za/wp-content/uploads/2024/08/0J1A2330p-MAIN-retouched_Resized-683x1024.jpg" alt="Bedroom Wardrobe">
+                    <div class="gallery-item-overlay">
+                        <h6>Bedroom Storage</h6>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://pgbison.co.za/wp-content/uploads/2024/08/0J1A2501p-MAIN-retouched_Resized-1024x683.jpg" alt="Elegant Kitchen">
+                    <div class="gallery-item-overlay">
+                        <h6>Elegant Interiors</h6>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://pgbison.co.za/wp-content/uploads/2025/08/PG-Bison-Meadow-House-27_2_25_0803_Comped-Kara-Blu-515x656.webp" alt="Office Space">
+                    <div class="gallery-item-overlay">
+                        <h6>Kara Blu Design</h6>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-5" data-aos="fade-up">
+                <a href="project.html" class="btn btn-primary btn-lg px-5">View All Projects</a>
+            </div>
+        </div>
+    </section>
+    <!-- Inspiration Gallery End -->
+
+
+    <!-- Hardware Section Start -->
+    <section class="product-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 order-lg-2" data-aos="fade-left">
+                    <div class="section-header">
+                        <h2>Hardware & Accessories</h2>
+                        <p>Complete your furniture projects with our premium range of hardware accessories. From hinges to handles, drawer systems to sliding mechanisms, we stock everything you need for a professional finish.</p>
+                    </div>
+                    <div class="row g-3">
+                        <div class="col-sm-6">
+                            <div class="d-flex align-items-center p-3 bg-light rounded-3">
+                                <i class="fa fa-door-open fa-2x text-primary me-3"></i>
+                                <span class="fw-bold">Cabinet Hinges</span>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="d-flex align-items-center p-3 bg-light rounded-3">
+                                <i class="fa fa-grip-lines fa-2x text-primary me-3"></i>
+                                <span class="fw-bold">Drawer Slides</span>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="d-flex align-items-center p-3 bg-light rounded-3">
+                                <i class="fa fa-hand-point-up fa-2x text-primary me-3"></i>
+                                <span class="fw-bold">Handles & Knobs</span>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="d-flex align-items-center p-3 bg-light rounded-3">
+                                <i class="fa fa-arrows-alt-h fa-2x text-primary me-3"></i>
+                                <span class="fw-bold">Sliding Systems</span>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="d-flex align-items-center p-3 bg-light rounded-3">
+                                <i class="fa fa-lock fa-2x text-primary me-3"></i>
+                                <span class="fw-bold">Locks & Catches</span>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="d-flex align-items-center p-3 bg-light rounded-3">
+                                <i class="fa fa-border-all fa-2x text-primary me-3"></i>
+                                <span class="fw-bold">Edge Banding</span>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="service.html" class="btn btn-primary mt-4">View Services</a>
+                </div>
+                <div class="col-lg-6 order-lg-1 mb-4 mb-lg-0" data-aos="fade-right">
+                    <div class="position-relative">
+                        <img src="https://pgbison.co.za/wp-content/uploads/2024/08/20210618_122551.jpg" class="img-fluid rounded-4 shadow-lg" alt="Hardware Accessories">
+                        <div class="position-absolute bottom-0 start-0 bg-primary text-white p-3 rounded-3 m-3">
+                            <h5 class="mb-0">0.4mm, 1mm & 2mm</h5>
+                            <small>Edge Banding Available</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Hardware Section End -->
+
+
+    <!-- CTA Section Start -->
+    <section class="products-cta">
+        <div class="container" data-aos="zoom-in">
+            <h2>Ready to Transform Your Space?</h2>
+            <p>Contact us today to discuss your project requirements or request product samples.</p>
+            <div class="d-flex justify-content-center gap-3 flex-wrap">
+                <a href="contact.html" class="btn btn-light">Get Free Quote</a>
+                <a href="tel:0119456199" class="btn btn-outline-light">Call (011) 945 6199</a>
+            </div>
+        </div>
+    </section>
+    <!-- CTA Section End -->
+
+
+    <!-- Footer Start -->
+    <div class="container-fluid bg-dark footer mt-0 py-5 wow fadeIn" data-wow-delay="0.1s">
+        <div class="container py-5">
+            <div class="row g-5">
+                <div class="col-lg-3 col-md-6">
+                    <h5 class="text-white mb-4">Our Office</h5>
+                    <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>33-47 Jesmond Ave, Nancefield, Soweto, 1811</p>
+                    <a href="tel:0119456199" style="color: white;"><p class="mb-2"><i class="fa fa-phone-alt me-3"></i>(011) 945 6199</p></a>
+                    <a href="mailto:gwalava@gmail.com" style="color: white;"><p class="mb-2"><i class="fa fa-envelope me-3"></i>info@gwalava.com</p></a>
+                    <div class="d-flex pt-3">
+                        <a class="btn btn-square btn-primary rounded-circle me-2" href="https://www.facebook.com/profile.php?id=100065189550617"><i class="fab fa-facebook-f"></i></a>
+                        <a class="btn btn-square btn-primary rounded-circle me-2" href=""><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h5 class="text-white mb-4">Quick Links</h5>
+                    <a class="btn btn-link" href="about.html">About Us</a>
+                    <a class="btn btn-link" href="contact.html">Contact Us</a>
+                    <a class="btn btn-link" href="service.html">Our Services</a>
+                    <a class="btn btn-link" href="products.html">Products</a>
+                    <a class="btn btn-link" href="project.html">Projects</a>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h5 class="text-white mb-4">Product Categories</h5>
+                    <a class="btn btn-link" href="#melawood">MelaWood Boards</a>
+                    <a class="btn btn-link" href="#woodgrains">Woodgrains</a>
+                    <a class="btn btn-link" href="#solid-colors">Solid Colors</a>
+                    <a class="btn btn-link" href="#worktops">Worktops</a>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h5 class="text-white mb-4">Business Hours</h5>
+                    <p class="mb-1">Monday - Friday</p>
+                    <h6 class="text-light">08:00 am - 17:00 pm</h6>
+                    <p class="mb-1">Saturday</p>
+                    <h6 class="text-light">Closed</h6>
+                    <p class="mb-1">Sunday</p>
+                    <h6 class="text-light">08:00 am - 14:30 pm</h6>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Footer End -->
+
+    
+    <!-- Copyright Start -->
+    <div class="container-fluid copyright bg-dark py-4">
+        <div class="container text-center">
+            <p class="mb-2">Copyright &copy; <a class="fw-medium" href="#">Gwalava Boards</a>, All Rights Reserved.</p>
+        </div>
+    </div>
+    <!-- Copyright End -->
+
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square rounded-circle back-to-top"><i class="bi bi-arrow-up"></i></a>
+
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/wow/wow.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/counterup/counterup.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+
+    <!-- AOS Animation Library -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
+    
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            once: true,
+            offset: 100
+        });
+        
+        // Smooth scroll for category navigation
+        document.querySelectorAll('.category-nav a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const offset = 150;
+                    const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - offset;
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Update active state
+                    document.querySelectorAll('.category-nav .nav-link').forEach(link => {
+                        link.classList.remove('active');
+                    });
+                    this.classList.add('active');
+                }
+            });
+        });
+        
+        // Update active nav on scroll
+        window.addEventListener('scroll', function() {
+            const sections = document.querySelectorAll('section[id]');
+            const navLinks = document.querySelectorAll('.category-nav .nav-link');
+            
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 200;
+                if (pageYOffset >= sectionTop) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === '#' + current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
