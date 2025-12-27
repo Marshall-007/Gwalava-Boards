@@ -1632,3 +1632,8 @@ html, body {
     background: var(--primary);
     border-color: var(--primary);
 }
+
+/* Featured Product Section */
+.featured-product h3 {
+    color: white !important;
+}
