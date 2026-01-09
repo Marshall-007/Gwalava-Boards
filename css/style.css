@@ -124,7 +124,7 @@ h6,
 
 .navbar .navbar-brand {
     position: relative;
-    padding-right: 50px;
+    padding-right: 15px;
     height: 75px;
     display: flex;
     align-items: center;
@@ -134,10 +134,10 @@ h6,
 .navbar .navbar-brand::after {
     position: absolute;
     content: "";
-    width: 50px;
+    width: 20px;
     height: 100%;
     top: 0;
-    right: -25px;
+    right: -10px;
     transform: skewX(-30deg);
     background-color: var(--primary);
 }
@@ -1183,12 +1183,12 @@ body {
     }
     
     .navbar .navbar-brand {
-        padding-right: 30px;
+        padding-right: 10px;
     }
     
     .navbar .navbar-brand::after {
-        width: 30px;
-        right: -15px;
+        width: 15px;
+        right: -7px;
     }
 }
 
@@ -1636,4 +1636,16 @@ html, body {
 /* Featured Product Section */
 .featured-product h3 {
     color: white !important;
+}
+
+/* Logo Brand Text */
+.navbar-brand h1 {
+    font-size: 1.825rem !important; /* Original 1.2rem + ~10px */
+    font-weight: 800 !important;
+}
+
+@media (max-width: 768px) {
+    .navbar-brand h1 {
+        font-size: 1.825rem !important; /* Same size for mobile as requested */
+    }
 }
