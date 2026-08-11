@@ -1649,3 +1649,198 @@ html, body {
         font-size: 1.825rem !important; /* Same size for mobile as requested */
     }
 }
+
+/*** Gallery ***/
+.gallery-filter {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: .75rem;
+}
+
+.gallery-filter .btn {
+    border: 1px solid rgba(2, 36, 91, .15);
+    background: #fff;
+    color: var(--dark);
+    padding: .6rem 1.6rem;
+    border-radius: 50px;
+    font-weight: 600;
+    transition: .3s;
+}
+
+.gallery-filter .btn:hover,
+.gallery-filter .btn.active {
+    background: var(--primary);
+    border-color: var(--primary);
+    color: #fff;
+    box-shadow: 0 8px 20px rgba(202, 11, 11, .25);
+}
+
+.gallery-item {
+    position: relative;
+    display: block;
+    overflow: hidden;
+    border-radius: 15px;
+    background: var(--dark);
+    box-shadow: var(--shadow-soft);
+}
+
+.gallery-item img {
+    display: block;
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+    transition: transform .5s ease;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.08);
+}
+
+.gallery-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    padding: 1.5rem;
+    text-align: center;
+    background: linear-gradient(to top, rgba(2, 36, 91, .92), rgba(2, 36, 91, .25));
+    opacity: 0;
+    transition: opacity .4s ease;
+}
+
+.gallery-item:hover .gallery-overlay,
+.gallery-item:focus-visible .gallery-overlay {
+    opacity: 1;
+}
+
+.gallery-zoom {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: var(--primary);
+    color: #fff;
+    font-size: 1.25rem;
+}
+
+.gallery-caption {
+    margin: 0;
+    color: #fff;
+}
+
+/* Touch screens have no hover, so the caption sits on the tile instead. */
+@media (hover: none) {
+    .gallery-overlay {
+        opacity: 1;
+        justify-content: flex-end;
+        background: linear-gradient(to top, rgba(2, 36, 91, .9) 0%, rgba(2, 36, 91, 0) 55%);
+    }
+
+    .gallery-zoom {
+        display: none;
+    }
+}
+
+/*** Gallery lightbox ***/
+body.gallery-lightbox-open {
+    overflow: hidden;
+}
+
+.gallery-lightbox {
+    position: fixed;
+    inset: 0;
+    z-index: 1080;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    padding: clamp(1rem, 4vw, 3rem);
+    background: rgba(2, 15, 35, .94);
+}
+
+.gallery-lightbox[hidden] {
+    display: none;
+}
+
+.gallery-lightbox-figure {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    margin: 0;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.gallery-lightbox-figure img {
+    max-width: 100%;
+    max-height: 78vh;
+    border-radius: 10px;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, .55);
+}
+
+.gallery-lightbox-figure figcaption {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: center;
+    gap: .75rem;
+    color: #fff;
+    font-weight: 600;
+    text-align: center;
+}
+
+.gallery-lightbox-count {
+    color: rgba(255, 255, 255, .6);
+    font-weight: 400;
+    font-size: .9rem;
+}
+
+.gallery-lightbox-nav,
+.gallery-lightbox-close {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, .12);
+    color: #fff;
+    transition: background .3s;
+}
+
+.gallery-lightbox-nav {
+    width: 52px;
+    height: 52px;
+    font-size: 1.5rem;
+}
+
+.gallery-lightbox-close {
+    position: absolute;
+    top: 1.25rem;
+    right: 1.25rem;
+    width: 46px;
+    height: 46px;
+    font-size: 1.75rem;
+    line-height: 1;
+}
+
+.gallery-lightbox-nav:hover,
+.gallery-lightbox-close:hover,
+.gallery-lightbox-nav:focus-visible,
+.gallery-lightbox-close:focus-visible {
+    background: var(--primary);
+}
+
+/* Arrows would crowd the photo on a phone - swipe handles it there. */
+@media (max-width: 575.98px) {
+    .gallery-lightbox-nav {
+        display: none;
+    }
+}

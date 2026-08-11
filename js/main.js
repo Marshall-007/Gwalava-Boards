@@ -1,17 +1,49 @@
+// The spinner covers the whole viewport until it is dismissed, so it must not
+// depend on jQuery loading from the CDN - a blocked or slow CDN would otherwise
+// leave every page behind a blank white screen.
+(function () {
+    "use strict";
+
+    var hide = function () {
+        var spinner = document.getElementById('spinner');
+        if (spinner) {
+            spinner.classList.remove('show');
+        }
+    };
+    hide();
+    window.addEventListener('load', hide);
+
+    // Decor photos are still served from the supplier's site. If one of them
+    // disappears or hotlinking gets blocked, fade the tile out instead of
+    // leaving a broken-image icon on the products page.
+    document.addEventListener(
+        'error',
+        function (e) {
+            var img = e.target;
+            if (img.tagName !== 'IMG' || img.dataset.failed) {
+                return;
+            }
+            img.dataset.failed = '1';
+            img.style.visibility = 'hidden';
+            var holder = img.parentElement;
+            if (holder) {
+                holder.style.background = '#f5f5f5';
+            }
+        },
+        true
+    );
+})();
+
+
 (function ($) {
     "use strict";
 
-    // Spinner
-    var spinner = function () {
-        setTimeout(function () {
-            if ($('#spinner').length > 0) {
-                $('#spinner').removeClass('show');
-            }
-        }, 1);
-    };
-    spinner();
-    
-    
+    // Everything below needs jQuery and its plugins.
+    if (typeof $ === 'undefined') {
+        return;
+    }
+
+
     // Initiate the wowjs
     new WOW().init();
 
@@ -115,6 +147,6 @@
         }
     });
 
-    
-})(jQuery);
+
+})(window.jQuery);
 

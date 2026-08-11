@@ -49,7 +49,6 @@
                 <div class="h-100 d-inline-flex align-items-center text-white">
                     <span>Follow Us:</span>
                     <a class="btn btn-link text-light" href="https://www.facebook.com/profile.php?id=100065189550617&sk=about_contact_and_basic_info"><i class="fab fa-facebook-f"></i></a>
-                    <a class="btn btn-link text-light" href=""><i class="fab fa-linkedin-in"></i></a>
                     <a class="btn btn-link text-light" href="https://www.instagram.com/gwalava_boards?igsh=MWtpdDEwODkxcXNiYQ=="><i class="fab fa-instagram"></i></a>
                 </div>
             </div>
@@ -78,6 +77,7 @@
                 <a href="about.html" class="nav-item nav-link">About</a>
                 <a href="service.html" class="nav-item nav-link">Services</a>
                 <a href="products.html" class="nav-item nav-link">Products</a>
+                <a href="gallery.html" class="nav-item nav-link">Gallery</a>
                 <a href="project.html" class="nav-item nav-link">Projects</a>
                 <a href="contact.html" class="nav-item nav-link active">Contact</a>
             </div>
@@ -175,13 +175,15 @@
                     </div>
                 </div>
                 <div class="col-lg-6 wow fadeInUp " id="project" data-wow-delay="0.5s">
-                    <form id="contactForm" action="https://formsubmit.co/marshalldube9@gmail.com" method="POST">
+                    <form id="contactForm" action="https://formsubmit.co/marshalldube9@gmail.com" method="POST" data-enquiry-form>
                         <input type="hidden" name="_subject" value="New Contact from Gwalava Boards Website">
                         <input type="hidden" name="_cc" value="gwalava@gmail.com">
-                        <input type="hidden" name="_captcha" value="true">
+                        <input type="hidden" name="_captcha" value="false">
                         <input type="hidden" name="_template" value="table">
+                        <!-- Used only when JavaScript is off. Must be an absolute URL - update it if the site moves to a custom domain. -->
+                        <input type="hidden" name="_next" value="https://marshall-007.github.io/Gwalava-Boards/thank-you.html">
                         <input type="hidden" name="_autoresponse" value="Thank you for contacting Gwalava Boards! We have received your message and will get back to you shortly.">
-                        <input type="text" name="_honey" style="display:none">
+                        <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
                         <div class="row g-3">
                             <div class="col-md-6">
                                 <div class="form-floating">
@@ -231,15 +233,16 @@
                             </div>
                             <div class="col-12">
                                 <button class="btn btn-primary py-3 px-5" type="submit" id="submitBtn">
-                                    <span id="btnText">Send Message</span>
-                                    <span id="btnSpinner" class="d-none"><i class="fa fa-spinner fa-spin me-2"></i>Sending...</span>
+                                    <span data-btn-text>Send Message</span>
+                                    <span data-btn-spinner class="d-none"><i class="fa fa-spinner fa-spin me-2"></i>Sending...</span>
                                 </button>
                             </div>
                             <div class="col-12">
-                                <div id="formSuccess" class="alert alert-success d-none" role="alert">
+                                <div data-form-success class="alert alert-success d-none" role="alert" aria-live="polite">
                                     <i class="fa fa-check-circle me-2"></i><strong>Thank you!</strong> Your message has been sent successfully. We'll get back to you shortly.
+                                    <span data-message class="d-block small mt-1"></span>
                                 </div>
-                                <div id="formError" class="alert alert-danger d-none" role="alert">
+                                <div data-form-error class="alert alert-danger d-none" role="alert" aria-live="assertive">
                                     <i class="fa fa-exclamation-circle me-2"></i><strong>Oops!</strong> Something went wrong. Please try again or call us directly at <a href="tel:+27672900119">+27 67 290 0119</a>.
                                 </div>
                             </div>
@@ -258,7 +261,7 @@
         <div class="row g-5">
             <div class="col-lg-3 col-md-6">
                 <h5 class="text-white mb-4">Our Office</h5>
-                <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>33-47 Jesmond Ave, Nancefield, Soweto, 1811</p>
+                <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>Ext 5, Unit 7 Industrial Park Eldorado Park, ELDORADOPARK, Johannesburg, 1811</p>
                 <a href="tel:+27672900119" style="color: white;">  <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+27 67 290 0119</p></a>
                 <a href="tel:0119456199" style="color: white; opacity: 0.8;">  <p class="mb-1"><i class="fa fa-phone-alt me-3"></i>(011) 945 6199</p></a>
                 <a href="mailto: gwalava@gmail.com" style="color: white;"> <p class="mb-2"><i class="fa fa-envelope me-3"></i>gwalava@gmail.com</p></a>
@@ -266,8 +269,7 @@
    
                     <a class="btn btn-square btn-primary rounded-circle me-2" href="https://www.facebook.com/profile.php?id=100065189550617&sk=about_contact_and_basic_info"><i class="fab fa-facebook-f"></i></a>
                    
-                    <a class="btn btn-square btn-primary rounded-circle me-2" href=""><i class="fab fa-linkedin-in"></i></a>
-                </div>
+                    </div>
             </div>
             <div class="col-lg-3 col-md-6">
                 <h5 class="text-white mb-4">Quick Links</h5>
@@ -275,6 +277,8 @@
                 <a class="btn btn-link" href="contact.html">Contact Us</a>
                 <a class="btn btn-link" href="service.html">Our Services</a>
                 <a class="btn btn-link" href="products.html">Products</a>
+                <a class="btn btn-link" href="gallery.html">Gallery</a>
+                <a class="btn btn-link" href="faq.html">FAQs</a>
             </div>
             <div class="col-lg-3 col-md-6">
                 <h5 class="text-white mb-4">Business Hours</h5>
@@ -334,63 +338,7 @@
     </script>
 
     <!-- Contact Form Handler -->
-    <script>
-        const form = document.getElementById('contactForm');
-        const btnText = document.getElementById('btnText');
-        const btnSpinner = document.getElementById('btnSpinner');
-        const submitBtn = document.getElementById('submitBtn');
-        const formSuccess = document.getElementById('formSuccess');
-        const formError = document.getElementById('formError');
-
-        form.addEventListener('submit', function(e) {
-            e.preventDefault();
-
-            // Hide previous messages
-            formSuccess.classList.add('d-none');
-            formError.classList.add('d-none');
-
-            // Show loading state
-            btnText.classList.add('d-none');
-            btnSpinner.classList.remove('d-none');
-            submitBtn.disabled = true;
-
-            // Get form data
-            const formData = new FormData(form);
-
-            // Submit via fetch to FormSubmit.co
-            fetch(form.action, {
-                method: 'POST',
-                body: formData,
-                headers: {
-                    'Accept': 'application/json'
-                }
-            })
-            .then(function(response) {
-                // Reset button
-                btnText.classList.remove('d-none');
-                btnSpinner.classList.add('d-none');
-                submitBtn.disabled = false;
-
-                if (response.ok) {
-                    formSuccess.classList.remove('d-none');
-                    form.reset();
-                    formSuccess.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-                } else {
-                    throw new Error('Form submission failed');
-                }
-            })
-            .catch(function(error) {
-                // Reset button
-                btnText.classList.remove('d-none');
-                btnSpinner.classList.add('d-none');
-                submitBtn.disabled = false;
-
-                formError.classList.remove('d-none');
-                formError.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-                console.error('Form error:', error);
-            });
-        });
-    </script>
+    <script src="js/contact-form.js"></script>
 </body>
 
 </html>

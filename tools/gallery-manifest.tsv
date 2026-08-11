@@ -1,0 +1,83 @@
+# Gallery manifest for tools/build-gallery.py
+#
+# One row per gallery photo, tab separated:
+#   category <TAB> slug <TAB> title <TAB> source image path
+#
+# category must be one of the filter keys defined in gallery.html:
+#   kitchens, wardrobes, furniture, workshop
+# slug is the file name used for the generated thumbnail and web-sized copy.
+# title shows on the tile and in the lightbox caption.
+#
+# After editing this file run:  python3 tools/build-gallery.py
+# That regenerates img/gallery/thumbs, img/gallery/web and the grid inside
+# gallery.html. Source images are never modified.
+
+kitchens	kitchen-charcoal-timber	Charcoal & Timber Kitchen	img/Remodeled/Rkitchen1.jpeg
+kitchens	kitchen-white-mosaic	White Kitchen With Mosaic Splashback	img/Remodeled/Rkitchen3.jpeg
+kitchens	kitchen-woodgrain-glass	Woodgrain Kitchen With Glass Uppers	img/Remodeled/Rkitchen4.jpeg
+kitchens	kitchen-corner-woodgrain	Woodgrain Corner Unit	img/Remodeled/Rkitchen13.jpeg
+kitchens	kitchen-dark-counter	Dark Counter Kitchen	img/Remodeled/Rkitchen14.jpeg
+kitchens	kitchen-grey-granite	Grey Kitchen With Granite Tops	img/Remodeled/Rkitchen15.jpeg
+kitchens	kitchen-oven-tower	Kitchen With Built-In Oven Tower	img/Remodeled/Rkitchen16.jpeg
+kitchens	kitchen-island-extractor	Island Kitchen With Extractor	img/Remodeled/Rkitchen17.jpeg
+kitchens	kitchen-installation	Kitchen Installation In Progress	img/Remodeled/Kitchen  48.jpeg
+kitchens	kitchen-white-gloss-galley	White Gloss Galley Kitchen	img/Remodeled/Kitchen  50.jpeg
+kitchens	kitchen-navy-timber	Navy & Timber L-Shaped Kitchen	img/Remodeled/Kitchen 53.jpeg
+kitchens	kitchen-luxe-gold	Luxe Kitchen With Gold Detailing	img/Remodeled/k2.jpg
+kitchens	kitchen-shaker-timber-floor	Shaker Kitchen On Timber Floor	img/Remodeled/k3.jpg
+kitchens	kitchen-red-high-gloss	Red High Gloss Kitchen	img/Remodeled/k4.jpg
+kitchens	kitchen-warm-timber	Warm Timber Kitchen	img/Remodeled/k5.jpg
+kitchens	kitchen-white-island	White Kitchen With Island	img/Remodeled/k6.jpg
+kitchens	kitchen-white-grey-galley	White & Grey Galley Kitchen	img/Remodeled/k7.jpg
+kitchens	kitchen-grey-shaker-range	Grey Shaker Kitchen With Range	img/Remodeled/k8.jpg
+kitchens	kitchen-grey-shaker-corner	Grey Shaker Corner Kitchen	img/Remodeled/k9.jpg
+kitchens	kitchen-dark-modern	Dark Modern Kitchen	img/Remodeled/k10.webp
+kitchens	kitchen-open-shelving	Kitchen With Open Shelving	img/Remodeled/k11.webp
+kitchens	kitchen-island-timber-floor	Island Kitchen On Timber Floor	img/Remodeled/k12.jpg
+kitchens	kitchen-dark-timber	Dark Timber Kitchen	img/Remodeled/k13.jpg
+kitchens	kitchen-timber-island	Timber Kitchen With Island	img/Remodeled/service-3.jpg
+kitchens	kitchen-minimal-dark	Minimal Dark Kitchen	img/gallery/Kitchen 8.jpg
+kitchens	kitchen-green-bar	Green Kitchen With Bar Seating	img/gallery/Kitchen 33.jpg
+kitchens	kitchen-white-wood	White & Wood Kitchen	img/gallery/clear Kitchen.jpg
+kitchens	kitchen-stainless	Kitchen With Stainless Appliances	img/gallery/f20c2708913f0794534c361906ba3c79.jpg
+kitchens	kitchen-marble-island	Kitchen With Marble Island	img/70b0bd9470ab139382dafb017bc5f593.jpg
+
+wardrobes	wardrobe-walk-in-white	White Walk-In Wardrobe	img/bedroom/Wardrobe1.jpg
+wardrobes	wardrobe-timber-walk-in	Timber Walk-In Wardrobe	img/bedroom/Wardrobe2.jpg
+wardrobes	wardrobe-shelving-shoe	Shelving & Shoe Storage	img/bedroom/Wardrobe3.jpg
+wardrobes	wardrobe-island-dresser	Wardrobe With Island Dresser	img/bedroom/Wardrobe4.jpg
+wardrobes	wardrobe-dressing-room	Full Dressing Room	img/bedroom/Wardrobe5.jpg
+wardrobes	wardrobe-drawer-bank	Wardrobe With Drawer Bank	img/bedroom/Wardrobe6.jpg
+wardrobes	wardrobe-open-shelving	Open Shelving Wardrobe	img/bedroom/Wardrobe7.jpg
+wardrobes	wardrobe-neutral-storage	Neutral Storage Wall	img/bedroom/Wardrobe8.jpg
+wardrobes	wardrobe-hisandhers	His & Hers Wardrobe	img/bedroom/Wardrobe9.jpg
+wardrobes	wardrobe-sliding-door	Sliding Door Wardrobe	img/bedroom/Wardrobe10.jpeg
+wardrobes	wardrobe-hinged-white	Hinged Door Wardrobe	img/bedroom/Wardrobe11.jpg
+wardrobes	wardrobe-fitted-bedroom	Fitted Bedroom Wardrobe	img/bedroom/Wardrobe12.jpg
+
+furniture	tv-slatted-wall	Slatted TV Feature Wall	img/gallery/TVStand1.jpeg
+furniture	tv-wall-unit	Built-In TV Wall Unit	img/gallery/TVStand13.jpeg
+furniture	desk-office-pedestal	Office Desk With Pedestal	img/gallery/desk 2.jpeg
+furniture	desk-straight-office	Straight Office Desk	img/gallery/desk 3.webp
+furniture	desk-l-shaped	L-Shaped Office Desk	img/gallery/desk 5.jpeg
+furniture	chest-of-drawers	Six Drawer Chest	img/gallery/6a4f581be293080285052cbf8d86c5f1.jpg
+
+workshop	workshop-panel-saw	Panel Saw On The Cutting Floor	img/20240124_170134.jpg
+workshop	workshop-board-store	Board Store	img/20240124_170141.jpg
+workshop	workshop-operator	Our Team At The Panel Saw	img/20240124_170144.jpg
+workshop	workshop-cutting-to-size	Cutting A Panel To Size	img/20240124_170213.jpg
+workshop	workshop-squaring-panel	Squaring Up A Panel	img/20240124_170215.jpg
+workshop	workshop-edgebander	Automatic Edgebanding Machine	img/20240124_170231.jpg
+workshop	workshop-cut-stack	Freshly Cut Panels	img/20240124_170249.jpg
+workshop	workshop-board-handling	Handling Boards On The Saw	img/220.jpg
+workshop	workshop-cut-and-edged	Cut And Edged Boards Ready For Collection	img/Cut and edge boards.jpeg
+workshop	workshop-white-board-stack	White Melamine Board Stack	img/WhatsApp Image 2025-05-01 at 17.26.07 (1).jpeg
+workshop	workshop-plywood-stack	Plywood Ready For Cutting	img/WhatsApp Image 2025-05-01 at 17.26.07.jpeg
+workshop	workshop-interior	Inside The Workshop	img/WhatsApp Image 2025-05-01 at 17.26.08.jpeg
+workshop	workshop-colour-display	Colour Samples At Our Shop	img/WhatsApp Image 2025-05-01 at 17.26.09.jpeg
+workshop	workshop-edged-panels	Edged Panels Ready To Assemble	img/WhatsApp Image 2025-05-01 at 17.26.23.jpeg
+workshop	workshop-mixed-cut-stack	Mixed Colour Cutting List	img/WhatsApp Image 2025-05-01 at 17.26.25 (1).jpeg
+workshop	workshop-board-selection	Board Selection In Store	img/WhatsApp Image 2025-05-01 at 17.26.25.jpeg
+workshop	workshop-plywood-sheets	Plywood Sheets	img/PLy wood.jpeg
+workshop	workshop-plywood-cutting	Plywood On The Cutting Floor	img/plywood.jpeg
+workshop	workshop-board-range	Our Board Range	img/service-2.jpeg

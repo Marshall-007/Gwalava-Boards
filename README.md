@@ -1,323 +1,202 @@
-# Gwalava-Boards
+# Gwalava Boards
 
-A concise, developer-friendly description of the Gwalava-Boards project.
+The website for **Gwalava Boards and Furniture Fittings** - melamine board cutting,
+edge banding and carpentry in Eldorado Park, Johannesburg.
 
-> Gwalava-Boards is a (replace with one-line description of what the project does — e.g., "lightweight message-board / forum application", "kanban-style board app", "dashboard for tracking projects", etc.).  
-> Update this README to reflect the exact purpose and features of your repository.
-
----
-
-## Table of Contents
-
-- [About](#about)
-- [Key Features](#key-features)
-- [Tech Stack](#tech-stack)
-- [Prerequisites](#prerequisites)
-- [Getting Started (Local Development)](#getting-started-local-development)
-  - [Clone the repository](#clone-the-repository)
-  - [Install dependencies](#install-dependencies)
-  - [Environment variables](#environment-variables)
-  - [Database setup](#database-setup)
-  - [Run the app](#run-the-app)
-- [Docker (optional)](#docker-optional)
-- [Testing](#testing)
-- [Linting & Formatting](#linting--formatting)
-- [Build & Production](#build--production)
-- [Deployment options](#deployment-options)
-- [Troubleshooting](#troubleshooting)
-- [Contributing](#contributing)
-- [License](#license)
-- [Contact](#contact)
-- [Acknowledgements](#acknowledgements)
+It is a plain static site: HTML, CSS and a little JavaScript. There is no build
+step to run before deploying and no server-side code. Open `index.html` in a
+browser and it works.
 
 ---
 
-## About
+## Contents
 
-Write a short paragraph explaining the purpose of Gwalava-Boards, the problem it solves, the target users, and any important high-level design choices (e.g., SPA vs multi-page app, backend API, microservices). Example:
-
-"Gwalava-Boards is an interactive kanban-style board for teams to organize tasks, notes, and resources. It exposes a REST/GraphQL API for the backend and a single-page application for the front-end."
-
-Replace the above with accurate information for the project.
-
----
-
-## Key Features
-
-- Create, update, rearrange boards, lists, and cards
-- Authentication and role-based access (admins, members, guests)
-- Real-time collaboration (WebSockets / Pusher / Socket.IO) — if applicable
-- File attachments and image previews
-- Activity logs / history
-- Search and filters
-- Responsive UI (mobile / tablet / desktop)
-
-Customize this list to match actual project features.
+- [Pages](#pages)
+- [Running it locally](#running-it-locally)
+- [The enquiry form](#the-enquiry-form)
+- [The gallery](#the-gallery)
+- [Supplier decor images](#supplier-decor-images)
+- [Layout of the repository](#layout-of-the-repository)
+- [Deploying](#deploying)
+- [Credits](#credits)
 
 ---
 
-## Tech Stack
+## Pages
 
-List the technologies used by your repository (add or remove as appropriate):
-
-- Frontend: React / Vue / Angular / Svelte / Next.js / Nuxt.js (replace with actual)
-- Backend: Node.js (Express / NestJS) or Django / Flask / Rails (replace with actual)
-- Database: PostgreSQL / MySQL / MongoDB / SQLite (replace with actual)
-- Realtime: Socket.IO / Pusher / WebSockets (if used)
-- Caching: Redis (if used)
-- Containerization: Docker / Docker Compose
-- CI/CD: GitHub Actions / other
-- Testing: Jest / Mocha / Cypress / Playwright
-
-If you're unsure, inspect `package.json`, backend files, or the repo README to fill in accurate information.
-
----
-
-## Prerequisites
-
-Before you start, ensure your machine meets the following requirements. Versions are recommendations — adapt to your project's supported versions.
-
-- Git (>= 2.20)
-  - Install: https://git-scm.com/
-- Node.js (LTS) (>= 18.x recommended)
-  - Install: https://nodejs.org/
-  - Verify: `node -v`, `npm -v`
-- NPM (comes with Node) or Yarn (optional)
-  - Yarn: https://yarnpkg.com/
-- A database server (choose correct one for this repo)
-  - PostgreSQL (>= 13) — Install: https://www.postgresql.org/
-  - or MySQL (>= 8) — Install: https://www.mysql.com/
-  - or MongoDB (>= 6) — Install: https://www.mongodb.com/
-- Redis (optional, used for job queues, caching or sessions)
-  - Install: https://redis.io/
-- Docker & Docker Compose (optional, recommended to run services in containers)
-  - Install: https://docs.docker.com/get-docker/
-- Code editor such as VS Code recommended
-  - Extensions: ESLint, Prettier, EditorConfig
-
-Notes:
-- If the repository already contains a `docker-compose.yml`, Docker can run all services without installing DBs locally.
-- Check project-specific files (e.g., `package.json`, `requirements.txt`, `Pipfile`, `composer.json`) to determine exact runtime and dependency managers.
+| Page | What it is |
+| --- | --- |
+| `index.html` | Home |
+| `about.html` | About the business and the team |
+| `service.html` | Board cutting, edging and carpentry services |
+| `products.html` | Board decors, colours, worktops and edging |
+| `gallery.html` | Filterable photo gallery with a lightbox |
+| `project.html` | Recent projects |
+| `faq.html` | Frequently asked questions |
+| `contact.html` | Contact details, map and the enquiry form |
+| `thank-you.html` | Shown after a form submit when JavaScript is off |
+| `team.html`, `testimonial.html`, `feature.html` | Extra pages, not in the main menu |
+| `404.html` | Shown by the host for an unknown URL |
 
 ---
 
-## Getting Started (Local Development)
+## Running it locally
 
-Follow these steps to get the project running locally.
-
-### Clone the repository
+Any static file server will do. The simplest:
 
 ```bash
-git clone https://github.com/Marshall-007/Gwalava-Boards.git
-cd Gwalava-Boards
+python3 -m http.server 8000
 ```
 
-### Install dependencies
+Then open <http://localhost:8000>.
 
-If the project is Node-based:
-
-```bash
-# using npm
-npm install
-
-# or using yarn
-yarn install
-```
-
-If the project is Python-based:
-
-```bash
-python -m venv venv
-source venv/bin/activate        # macOS / Linux
-venv\Scripts\activate           # Windows
-pip install -r requirements.txt
-```
-
-Adjust the commands depending on the actual tech stack.
-
-### Environment variables
-
-Create a `.env` file at the repository root (the project may include `.env.example` which you can copy):
-
-```bash
-cp .env.example .env
-```
-
-Example `.env` variables (customize for your project):
-
-```
-# Server
-NODE_ENV=development
-PORT=3000
-
-# Database (Postgres example)
-DATABASE_URL=postgres://user:password@localhost:5432/gwalava_db
-
-# MongoDB example
-MONGO_URI=mongodb://localhost:27017/gwalava_db
-
-# Redis (if used)
-REDIS_URL=redis://localhost:6379
-
-# Auth
-JWT_SECRET=your_jwt_secret_here
-SESSION_SECRET=your_session_secret_here
-
-# Third party keys (if used)
-CLOUDINARY_URL=...
-SENTRY_DSN=...
-```
-
-Important:
-- Never commit real secrets. Use environment variables or secret managers.
-- For CI, set secrets in pipeline settings.
-
-### Database setup
-
-Postgres example:
-
-1. Create database and user:
-
-```sql
--- psql example
-CREATE USER gwalava_user WITH PASSWORD 'yourpassword';
-CREATE DATABASE gwalava_db OWNER gwalava_user;
-```
-
-2. Run migrations (if using an ORM):
-
-```bash
-# Example for TypeORM / Prisma / Sequelize
-npm run migrate
-# or for Prisma
-npx prisma migrate dev
-```
-
-MongoDB example:
-
-- Ensure `MONGO_URI` points to a running MongoDB instance.
-- Run any seed scripts:
-
-```bash
-npm run seed
-```
-
-Adjust to your project's migration/seeding tooling.
-
-### Run the app
-
-Start development server:
-
-```bash
-# Node / JS
-npm run dev           # or `yarn dev`
-```
-
-Open http://localhost:3000 (or port set in `.env`).
-
-If the repo contains frontend and backend folders:
-
-```bash
-# Root might include packages / apps; run each service in its folder:
-cd server
-npm install
-npm run dev
-
-cd ../client
-npm install
-npm run dev
-```
+Opening the files directly with `file://` mostly works, but a server is closer
+to the real thing.
 
 ---
 
-## Docker (optional)
+## The enquiry form
 
-If a `Dockerfile` and `docker-compose.yml` are present, you can run everything in containers:
+The form on `contact.html` is handled by [FormSubmit](https://formsubmit.co) -
+a free service that emails form submissions, so the site does not need a
+backend.
 
-```bash
-# Build and run containers
-docker-compose up --build
+How it is wired up:
 
-# In detached mode
-docker-compose up -d --build
+- The form posts to `https://formsubmit.co/marshalldube9@gmail.com`, with a
+  copy to `gwalava@gmail.com` via the `_cc` field.
+- `js/contact-form.js` intercepts the submit and sends it in the background to
+  the `/ajax/` variant of that URL, so the visitor stays on the page. FormSubmit
+  only sends CORS headers from the `/ajax/` endpoint - posting to the plain URL
+  with `fetch` fails in the browser even when the mail goes through.
+- `_captcha` is `false`. FormSubmit rejects background submissions while its
+  captcha is on. The hidden `_honey` field catches bots instead.
+- With JavaScript off the form posts normally and FormSubmit redirects to
+  `thank-you.html`, named in the `_next` field. That field needs an absolute
+  URL, so **update it if the site moves to a custom domain**.
 
-# Stop and remove containers
-docker-compose down
-```
+**First-time setup:** FormSubmit emails the recipient address a confirmation
+link the first time a form is submitted, and sends nothing until that link is
+clicked. If enquiries are not arriving, check that inbox (and its spam folder)
+for the activation mail. The confirmation message from FormSubmit is shown to
+the visitor, so a stuck activation is visible rather than silent.
 
-Check `docker-compose.yml` for service names and ports. Use `docker-compose logs -f` to stream logs.
-
----
-
-## Testing
-
-Describe how to run unit/integration/e2e tests. Example:
-
-```bash
-# Run unit tests
-npm run test
-
-# Watch mode
-npm run test:watch
-
-# Run end-to-end tests (Cypress example)
-npm run e2e
-```
-
-If using Jest:
-
-```bash
-npx jest --coverage
-```
-
-If using Cypress:
-
-```bash
-npx cypress open
-```
-
-Add specific commands found in `package.json`.
+To change where enquiries go, edit the `action` and the `_cc` field in
+`contact.html` - nothing else needs to change.
 
 ---
 
-## Linting & Formatting
+## The gallery
 
-Provide commands to run linters and formatters:
+`gallery.html` filters by category and opens photos in a lightbox with keyboard
+arrows, Escape to close and swipe support on phones. Linking to
+`gallery.html#kitchens` opens the page with that filter already applied.
 
-```bash
-# ESLint
-npm run lint
+The grid is generated, not hand written. To change what appears:
 
-# Prettier
-npm run format
+1. Edit `tools/gallery-manifest.tsv` - one tab separated row per photo:
 
-# Fix issues automatically
-npm run lint:fix
-```
+   ```
+   category<TAB>slug<TAB>title<TAB>source image path
+   ```
 
-Add the exact commands based on `package.json` scripts.
+   `category` is one of `kitchens`, `wardrobes`, `furniture`, `workshop`.
 
----
+2. Rebuild:
 
-## Build & Production
+   ```bash
+   pip install Pillow          # once
+   python3 tools/build-gallery.py
+   ```
 
-Build the project for production:
+That writes a grid thumbnail to `img/gallery/thumbs/` and a lightbox-sized copy
+to `img/gallery/web/`, rewrites the grid inside `gallery.html`, and deletes
+derivatives whose row you removed. Original photos are never modified.
 
-```bash
-# Frontend build (Next.js / React)
-npm run build
-npm run start   # or serve the build
-
-# Backend production start
-NODE_ENV=production node dist/server.js   # or use PM2, Docker, etc.
-```
-
-Recommended production process:
-- Use a process manager (PM2, systemd) or Docker containers.
-- Use environment-specific variables and secret management.
-- Configure a reverse proxy (NGINX) or a platform (Heroku, Vercel, Render) according to your needs.
-- Use HTTPS (Let's Encrypt or platform-provided certs).
+This matters for page weight: several workshop photos are 5-6MB straight off a
+phone. The page only ever loads the generated copies. The script also bakes in
+EXIF rotation, without which those phone photos display on their side.
 
 ---
 
-## Deployment options
+## Supplier decor images
+
+The products and projects pages currently load around 40 decor photos directly
+from `pgbison.co.za`. That works, but it breaks the moment the supplier renames
+a file or blocks hotlinking, and every visitor waits on their server.
+
+`tools/fetch-supplier-images.py` copies them onto this site:
+
+```bash
+python3 tools/fetch-supplier-images.py --dry-run   # see what it would fetch
+python3 tools/fetch-supplier-images.py             # download, then update the HTML
+```
+
+It finds every remote image the site references, saves it under `img/decors/`,
+and repoints the pages at the local copies. Anything it cannot fetch keeps its
+current remote URL, so a partial run never breaks a page.
+
+To pull images from a supplier page that the site does not reference yet - a
+Sonae Arauco decor range, a new PG Bison collection:
+
+```bash
+python3 tools/fetch-supplier-images.py --from-page "https://example.com/decors" --dest sonae
+```
+
+Those land in `img/decors/sonae/` for you to place on a page or add to the
+gallery manifest.
+
+Standard library only - nothing to install.
+
+**On using them:** decor photographs belong to the board manufacturer. Showing
+them as the product range a supplier stocks is normal practice, but keep the
+decor name with each image and do not present manufacturer photography as
+pictures of your own installations.
+
+---
+
+## Layout of the repository
+
+```
+├── *.html                  the pages
+├── css/
+│   ├── bootstrap.min.css   Bootstrap 5
+│   └── style.css           site styles, including the gallery and lightbox
+├── js/
+│   ├── main.js             spinner, sticky nav, carousels, counters
+│   ├── contact-form.js     enquiry form submission
+│   └── gallery.js          gallery filtering and lightbox
+├── img/
+│   ├── gallery/thumbs/     generated grid thumbnails
+│   ├── gallery/web/        generated lightbox images
+│   ├── decors/             supplier images, once downloaded
+│   └── ...                 source photographs
+├── lib/                    WOW, Owl Carousel, Waypoints, CounterUp, Easing
+├── scss/                   Bootstrap source, not used at runtime
+└── tools/
+    ├── gallery-manifest.tsv
+    ├── build-gallery.py
+    └── fetch-supplier-images.py
+```
+
+Bootstrap's JavaScript, jQuery, Font Awesome and Google Fonts load from CDNs.
+If a CDN is unreachable the page still renders and stays readable - the loading
+spinner is dismissed by plain JavaScript that does not wait for jQuery.
+
+---
+
+## Deploying
+
+The site is served straight from this repository, so deploying is a push to the
+default branch. Nothing needs to be built first.
+
+If you add photos, run `python3 tools/build-gallery.py` and commit the generated
+files in `img/gallery/thumbs/` and `img/gallery/web/` along with the originals.
+
+---
+
+## Credits
+
+Built on the *Industro* template by [HTML Codex](https://htmlcodex.com),
+substantially reworked for Gwalava Boards. See `LICENSE.txt` for the template
+licence.
